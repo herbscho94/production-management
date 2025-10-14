@@ -7,6 +7,66 @@
     "currency": "EUR",
     "tax_rate": 19.0
   },
-  "equipment": []
+  "equipment": [
+    {
+      "id": "led_001",
+      "name": "LED-Wand Premium 6x4m",
+      "type": "LED Screen",
+      "category": "LED Wall",
+      "manufacturer": "Samsung",
+      "model": "The Wall Pro",
+      "serial_number": "LED-PRO-2024-001",
+      "specifications": {
+        "dimensions": "6m x 4m",
+        "resolution": "7680 x 5120",
+        "pixel_pitch": "2.5mm",
+        "brightness": "1500 nits",
+        "weight_kg": 180
+      },
+      "status": "available",
+      "location": "Hauptlager Berlin",
+      "purchase_date": "2024-01-15",
+      "purchase_price": 45000.00,
+      "daily_rental_rate": 800.00,
+      "condition": "excellent",
+      "maintenance": {
+        "last_service": "2025-09-15",
+        "next_service": "2025-12-15",
+        "service_interval_days": 90
+      },
+      "notes": "Flaggschiff-Modell, perfekt für große Events",
+      "created_at": "2024-01-15T10:00:00Z",
+      "updated_at": "2025-10-14T10:00:00Z"
+    },
+    {
+      "id": "led_002",
+      "name": "LED-Wand Standard 4x3m",
+      "type": "LED Screen",
+      "category": "LED Wall",
+      "manufacturer": "LG",
+      "model": "Direct View LED",
+      "serial_number": "LED-STD-2024-002",
+      "specifications": {
+        "dimensions": "4m x 3m",
+        "resolution": "5120 x 3840",
+        "pixel_pitch": "3.0mm",
+        "brightness": "1200 nits",
+        "weight_kg": 95
+      },
+      "status": "available",
+      "location": "Hauptlager Berlin",
+      "purchase_date": "2024-02-20",
+      "purchase_price": 28000.00,
+      "daily_rental_rate": 500.00,
+      "condition": "very good",
+      "maintenance": {
+        "last_service": "2025-09-20",
+        "next_service": "2025-12-20",
+        "service_interval_days": 90
+      },
+      "notes": "Vielseitig einsetzbar für mittelgroße Events",
+      "created_at": "2024-02-20T10:00:00Z",
+      "updated_at": "2025-10-14T10:00:00Z"
+    }
+  ]
 }
-

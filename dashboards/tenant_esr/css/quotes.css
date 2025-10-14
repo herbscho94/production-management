@@ -1,0 +1,263 @@
+/* =====================================================
+   QUOTES STYLES
+   ===================================================== */
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background: var(--bg-main);
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    background: var(--esr-primary);
+    color: white;
+}
+
+/* Quotes Grid */
+.quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.quote-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.quote-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.quote-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.quote-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.quote-customer {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.quote-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.813rem;
+    font-weight: 600;
+}
+
+.quote-status.draft {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.quote-status.sent {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.quote-status.accepted {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.quote-status.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.quote-details {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.quote-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.quote-detail-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.quote-detail-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.quote-equipment-list {
+    margin-bottom: 1rem;
+}
+
+.quote-equipment-item {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.quote-equipment-item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--esr-primary);
+    font-weight: 700;
+}
+
+.quote-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border);
+}
+
+.quote-total-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.quote-total-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--esr-primary);
+}
+
+.quote-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.quote-btn {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quote-btn:hover {
+    background: var(--bg-main);
+}
+
+.quote-btn.primary {
+    background: var(--esr-primary);
+    color: white;
+    border-color: var(--esr-primary);
+}
+
+.quote-btn.primary:hover {
+    background: var(--esr-primary-dark);
+}
+
+/* Quote Modal/Detail View */
+.quote-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.quote-modal.active {
+    display: flex;
+}
+
+.quote-modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.quote-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.quote-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.quote-modal-close:hover {
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quotes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quote-actions {
+        flex-direction: column;
+    }
+}
+

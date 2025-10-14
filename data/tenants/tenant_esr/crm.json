@@ -1,0 +1,228 @@
+{
+  "customers": [
+    {
+      "id": "cust_001",
+      "company_name": "TechEvent GmbH",
+      "contact_person": "Maria Schmidt",
+      "address": {
+        "street": "Hauptstraße 123",
+        "city": "Berlin",
+        "postal_code": "10115",
+        "country": "Germany"
+      },
+      "phone": "+49 30 12345678",
+      "email": "m.schmidt@techevent.de",
+      "notes": "Bevorzugt große LED-Wände, regelmäßiger Kunde",
+      "status": "active",
+      "customer_since": "2024-01-15",
+      "created_at": "2024-01-15T10:00:00Z",
+      "updated_at": "2025-10-14T10:00:00Z"
+    },
+    {
+      "id": "cust_002",
+      "company_name": "Festival Productions",
+      "contact_person": "Thomas Weber",
+      "address": {
+        "street": "Eventplatz 45",
+        "city": "Hamburg",
+        "postal_code": "20095",
+        "country": "Germany"
+      },
+      "phone": "+49 40 98765432",
+      "email": "t.weber@festival-pro.de",
+      "notes": "Großkunde für Musikfestivals",
+      "status": "active",
+      "customer_since": "2024-03-20",
+      "created_at": "2024-03-20T14:30:00Z",
+      "updated_at": "2025-10-14T10:00:00Z"
+    },
+    {
+      "id": "cust_003",
+      "company_name": "Corporate Events Plus",
+      "contact_person": "Sarah Müller",
+      "address": {
+        "street": "Messestraße 78",
+        "city": "München",
+        "postal_code": "80331",
+        "country": "Germany"
+      },
+      "phone": "+49 89 55512345",
+      "email": "s.mueller@corporate-events.de",
+      "notes": "Firmenfeiern und Konferenzen",
+      "status": "potential",
+      "customer_since": null,
+      "created_at": "2025-10-01T09:00:00Z",
+      "updated_at": "2025-10-14T10:00:00Z"
+    }
+  ],
+  "communications": [
+    {
+      "id": "comm_001",
+      "customer_id": "cust_001",
+      "date": "2025-10-10T14:30:00Z",
+      "channel": "email",
+      "subject": "Anfrage LED-Wand für Tech-Konferenz",
+      "description": "Kunde fragt nach Verfügbarkeit für 15.-17. Dezember 2025",
+      "contact_person": "Herbert Scholz",
+      "attachments": [],
+      "created_at": "2025-10-10T14:30:00Z"
+    },
+    {
+      "id": "comm_002",
+      "customer_id": "cust_001",
+      "date": "2025-10-11T10:00:00Z",
+      "channel": "phone",
+      "subject": "Rückruf wegen Angebot",
+      "description": "Technische Details besprochen, Kunde benötigt 6x4m LED-Wand",
+      "contact_person": "Herbert Scholz",
+      "attachments": [],
+      "created_at": "2025-10-11T10:00:00Z"
+    },
+    {
+      "id": "comm_003",
+      "customer_id": "cust_002",
+      "date": "2025-10-05T16:45:00Z",
+      "channel": "meeting",
+      "subject": "Projektbesprechung Sommerfestival 2026",
+      "description": "Vorplanung für großes Festival im Juli 2026, beide LED-Wände benötigt",
+      "contact_person": "Herbert Scholz",
+      "attachments": ["meeting_notes_festival2026.pdf"],
+      "created_at": "2025-10-05T16:45:00Z"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "quote_001",
+      "quote_number": "ANG-2025-001",
+      "customer_id": "cust_001",
+      "date": "2025-10-11T15:00:00Z",
+      "equipment": [
+        {
+          "equipment_id": "led_001",
+          "name": "LED-Wand Premium 6x4m",
+          "quantity": 1
+        }
+      ],
+      "rental_period": {
+        "start_date": "2025-12-15",
+        "end_date": "2025-12-17",
+        "days": 3
+      },
+      "pricing": {
+        "daily_rate": 800.00,
+        "total_days": 3,
+        "subtotal": 2400.00,
+        "tax_rate": 19,
+        "tax_amount": 456.00,
+        "total": 2856.00,
+        "currency": "EUR"
+      },
+      "status": "sent",
+      "notes": "Inklusive Auf- und Abbau, Transport im Umkreis 50km",
+      "valid_until": "2025-10-25",
+      "created_at": "2025-10-11T15:00:00Z",
+      "updated_at": "2025-10-11T15:00:00Z"
+    },
+    {
+      "id": "quote_002",
+      "quote_number": "ANG-2025-002",
+      "customer_id": "cust_002",
+      "date": "2025-10-12T09:30:00Z",
+      "equipment": [
+        {
+          "equipment_id": "led_001",
+          "name": "LED-Wand Premium 6x4m",
+          "quantity": 1
+        },
+        {
+          "equipment_id": "led_002",
+          "name": "LED-Wand Standard 4x3m",
+          "quantity": 1
+        }
+      ],
+      "rental_period": {
+        "start_date": "2025-11-20",
+        "end_date": "2025-11-22",
+        "days": 3
+      },
+      "pricing": {
+        "daily_rate": 1300.00,
+        "total_days": 3,
+        "subtotal": 3900.00,
+        "tax_rate": 19,
+        "tax_amount": 741.00,
+        "total": 4641.00,
+        "currency": "EUR"
+      },
+      "status": "accepted",
+      "notes": "Beide LED-Wände für Festival, inklusive Techniker vor Ort",
+      "valid_until": "2025-10-20",
+      "created_at": "2025-10-12T09:30:00Z",
+      "updated_at": "2025-10-13T14:00:00Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "inv_001",
+      "invoice_number": "RE-2025-001",
+      "customer_id": "cust_002",
+      "quote_id": "quote_002",
+      "date": "2025-10-13T16:00:00Z",
+      "due_date": "2025-11-13",
+      "amount": 4641.00,
+      "currency": "EUR",
+      "payment_status": "pending",
+      "payment_method": null,
+      "payment_date": null,
+      "items": [
+        {
+          "description": "LED-Wand Premium 6x4m (3 Tage)",
+          "quantity": 1,
+          "unit_price": 2400.00,
+          "total": 2400.00
+        },
+        {
+          "description": "LED-Wand Standard 4x3m (3 Tage)",
+          "quantity": 1,
+          "unit_price": 1500.00,
+          "total": 1500.00
+        }
+      ],
+      "subtotal": 3900.00,
+      "tax_rate": 19,
+      "tax_amount": 741.00,
+      "total": 4641.00,
+      "notes": "Zahlung innerhalb 30 Tage",
+      "pdf_path": null,
+      "created_at": "2025-10-13T16:00:00Z",
+      "updated_at": "2025-10-13T16:00:00Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "book_001",
+      "customer_id": "cust_002",
+      "quote_id": "quote_002",
+      "invoice_id": "inv_001",
+      "equipment": [
+        {
+          "equipment_id": "led_001",
+          "name": "LED-Wand Premium 6x4m"
+        },
+        {
+          "equipment_id": "led_002",
+          "name": "LED-Wand Standard 4x3m"
+        }
+      ],
+      "start_date": "2025-11-20",
+      "end_date": "2025-11-22",
+      "event_name": "Herbst Music Festival",
+      "event_location": "Hamburg Stadtpark",
+      "status": "confirmed",
+      "notes": "Aufbau am 19.11., Abbau am 23.11.",
+      "created_at": "2025-10-13T14:00:00Z",
+      "updated_at": "2025-10-13T16:00:00Z"
+    }
+  ]
+}
+

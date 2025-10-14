@@ -1,0 +1,321 @@
+/* =====================================================
+   INVOICES STYLES
+   ===================================================== */
+
+/* Invoices Grid */
+.invoices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.invoice-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.invoice-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.invoice-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.invoice-customer {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.invoice-payment-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.813rem;
+    font-weight: 600;
+}
+
+.invoice-payment-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.invoice-payment-status.paid {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.invoice-payment-status.overdue {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.invoice-payment-status.partially_paid {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.invoice-details {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.invoice-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.invoice-detail-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.invoice-detail-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.invoice-items {
+    margin-bottom: 1rem;
+}
+
+.invoice-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: var(--bg-main);
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.invoice-item-description {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.invoice-item-amount {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.invoice-totals {
+    padding-top: 1rem;
+    border-top: 2px solid var(--border);
+}
+
+.invoice-total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.invoice-total-row.grand-total {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.invoice-total-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.invoice-total-label.grand {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.invoice-total-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.invoice-total-value.grand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--esr-primary);
+}
+
+.invoice-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.invoice-btn {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.invoice-btn:hover {
+    background: var(--bg-main);
+}
+
+.invoice-btn.primary {
+    background: var(--esr-primary);
+    color: white;
+    border-color: var(--esr-primary);
+}
+
+.invoice-btn.primary:hover {
+    background: var(--esr-primary-dark);
+}
+
+.invoice-btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Due Date Warning */
+.invoice-due-warning {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    border-radius: 6px;
+    font-size: 0.813rem;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.invoice-due-warning.overdue {
+    background: #fee2e2;
+    border-color: #f87171;
+    color: #991b1b;
+}
+
+.invoice-due-warning-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Invoice Modal */
+.invoice-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.invoice-modal.active {
+    display: flex;
+}
+
+.invoice-modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.invoice-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.invoice-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.invoice-modal-close:hover {
+    color: var(--text-primary);
+}
+
+/* Print-friendly Invoice Preview */
+.invoice-preview {
+    background: white;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.invoice-preview-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.invoice-preview-company {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.invoice-preview-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--esr-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .invoices-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .invoice-actions {
+        flex-direction: column;
+    }
+}
+
+@media print {
+    .invoice-actions,
+    .invoice-modal-close {
+        display: none;
+    }
+}
+

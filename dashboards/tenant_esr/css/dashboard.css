@@ -4,12 +4,13 @@
    ===================================================== */
 
 :root {
-    /* ESR Brand Colors */
-    --esr-primary: #dc2626;
-    --esr-primary-dark: #b91c1c;
-    --esr-primary-light: #ef4444;
+    /* Events Green Rentals Brand Colors */
+    --esr-primary: #10b981;      /* Green - Umweltfreundlich */
+    --esr-primary-dark: #059669;
+    --esr-primary-light: #34d399;
     --esr-secondary: #1f2937;
     --esr-accent: #f59e0b;
+    --esr-blue: #3b82f6;
     
     /* UI Colors */
     --bg-main: #f9fafb;
@@ -521,6 +522,122 @@ body {
 }
 
 /* =====================================================
+   EQUIPMENT CARDS
+   ===================================================== */
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.equipment-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+}
+
+.equipment-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.equipment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.equipment-card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.equipment-card-body {
+    margin-bottom: 1rem;
+}
+
+.equipment-spec {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.spec-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.spec-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.equipment-price {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.price-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--esr-primary);
+}
+
+.equipment-card-footer {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.btn-sm.primary {
+    background: var(--esr-primary);
+    color: white;
+    border-color: var(--esr-primary);
+}
+
+.btn-sm.primary:hover {
+    background: var(--esr-primary-dark);
+}
+
+/* =====================================================
+   UTILITY CLASSES
+   ===================================================== */
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 3rem 1rem;
+    font-size: 1rem;
+}
+
+/* =====================================================
    RESPONSIVE
    ===================================================== */
 
@@ -551,6 +668,10 @@ body {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+    }
+    
+    .equipment-grid {
+        grid-template-columns: 1fr;
     }
 }
 

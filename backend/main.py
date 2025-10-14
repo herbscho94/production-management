@@ -413,6 +413,44 @@ async def export_equipment(
     return {"success": True, "data": equipment}
 
 # =====================================================
+# CRM ENDPOINTS
+# =====================================================
+
+@app.get("/api/tenants/{tenant_id}/crm")
+async def get_crm_data(
+    tenant_id: str,
+    credentials: HTTPAuthorizationCredentials = Depends(security)
+):
+    """
+    Get CRM data (customers, communications, quotes, invoices, bookings)
+    """
+    payload = auth_manager.decode_token(credentials.credentials)
+    
+    if payload['tenant_id'] != tenant_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+    
+    # Load CRM data
+    crm_file = Path(settings.DATA_DIR) / "tenants" / tenant_id / "crm.json"
+    
+    if not crm_file.exists():
+        # Return empty CRM structure if file doesn't exist
+        return {
+            "customers": [],
+            "communications": [],
+            "quotes": [],
+            "invoices": [],
+            "bookings": []
+        }
+    
+    import json
+    try:
+        with open(crm_file, 'r', encoding='utf-8') as f:
+            crm_data = json.load(f)
+        return crm_data
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load CRM data: {str(e)}")
+
+# =====================================================
 # ERROR HANDLERS
 # =====================================================
 
