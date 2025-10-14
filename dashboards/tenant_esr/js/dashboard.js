@@ -3,7 +3,7 @@
  * Tenant ID: tenant_esr
  */
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = 'http://87.106.176.134/api'; // Production server
 const TENANT_ID = 'tenant_esr';
 
 // Session management

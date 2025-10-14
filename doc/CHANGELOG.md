@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.0.5] - 2025-10-14
+
+### Added
+- **SERVER_INSTALLATION.md**: Complete Ubuntu server deployment guide
+  - Step-by-step installation instructions
+  - Backend setup (Python/FastAPI + Systemd)
+  - NGINX reverse proxy configuration
+  - SSL/HTTPS setup with Let's Encrypt
+  - Troubleshooting section
+  - Maintenance and update procedures
+  - Security best practices
+
+### Changed
+- Updated README.md with link to server installation guide
+- Improved documentation structure in `doc/` folder
+
+### Technical Details
+- Documented complete production deployment process
+- Includes .env configuration examples
+- NGINX security headers and blocked paths
+- Systemd service configuration
+- Firewall (UFW) setup
+
+---
+
 ## [1.0.0] - 2025-10-14
 
 ### 🎉 Initial Release - Multi-Tenant SaaS Platform

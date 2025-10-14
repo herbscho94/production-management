@@ -46,18 +46,26 @@ Complete system documentation including:
 - Multi-tenant architecture
 - Current tenants (ESR, CMH)
 - Login system details
-- API architecture (planned)
+- API architecture
 - Development decisions
 - Roadmap
 
-### Legacy Documentation (Reference Only)
+**🖥️ [SERVER_INSTALLATION.md](./doc/SERVER_INSTALLATION.md)** ← **SERVER DEPLOYMENT**
 
-- `doc/DOCUMENTATION.md` - Equipment system (single-tenant)
-- `doc/USERS_DOCUMENTATION.md` - User system (single-tenant)
-- `doc/LOGIN_README.md` - Login page (outdated)
-- `doc/MULTI_TENANT_GUIDE.md` - Multi-tenant basics
+Complete Ubuntu server installation guide:
+- Step-by-step installation
+- Backend setup (Python/FastAPI)
+- NGINX configuration
+- SSL/HTTPS setup
+- Troubleshooting
+- Maintenance & updates
 
-> ⚠️ **Note:** Legacy docs reference the old single-tenant structure. Use SYSTEM_DOCUMENTATION.md for current information.
+### Additional Documentation
+
+- `doc/PROJECT_SUMMARY.md` - One-page project overview
+- `doc/CHANGELOG.md` - Version history and changes
+
+> 📚 All documentation is in the `doc/` folder for easy access.
 
 ---
 
@@ -208,29 +216,45 @@ Produktionsplanung/
 
 ## 🌐 Deployment
 
-### Development (Current)
+### 🚀 Quick Deploy (Production)
+
+**Automatisches Setup auf Ubuntu Server (5 Minuten):**
 
 ```bash
-# Local development server
-python3 -m http.server 8000
+cd /var/www
+git clone https://github.com/herbscho94/production-management.git
+cd production-management/backend
+chmod +x setup-server.sh
+sudo ./setup-server.sh
 ```
 
-### Production (Planned)
+➡️ **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Alle Deployment-Optionen  
+➡️ **[doc/SERVER_INSTALLATION.md](./doc/SERVER_INSTALLATION.md)** - Detaillierte Anleitung
 
-**Frontend:**
-- Deploy to Vercel, Netlify, or Cloudflare Pages
-- Custom domain: production-management.vbs-broadcast.com
+### 💻 Local Development
 
-**Backend:**
-- Node.js API on Railway, DigitalOcean, or AWS
-- PostgreSQL database
-- Redis for caching/sessions
+```bash
+# Backend (Terminal 1)
+cd backend
+./start.sh
 
-**Estimated Costs:**
-- Frontend: Free (static hosting)
-- Backend: €10-20/month (small VPS)
-- Database: €5-10/month (managed service)
-- **Total:** ~€20-30/month for unlimited tenants
+# Frontend (Terminal 2)
+cd ..
+python3 -m http.server 8001
+```
+
+**Dann öffnen:** `http://localhost:8001`
+
+### 📊 Production Stack
+
+**Current (Deployed):**
+- **Frontend:** Static HTML/CSS/JS (via NGINX)
+- **Backend:** Python FastAPI + Uvicorn
+- **Database:** JSON Files (tenant-isolated)
+- **Proxy:** NGINX
+- **Server:** Ubuntu 20.04+ LTS
+
+**Costs:** ~€5-10/month (small VPS)
 
 ---
 

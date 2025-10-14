@@ -14,7 +14,7 @@
 const CONFIG = {
     // API Configuration
     useAPI: true, // Set to false to use local JSON files (development)
-    apiBaseUrl: 'http://localhost:8000/api',
+    apiBaseUrl: 'http://87.106.176.134/api', // Production server
     
     // Legacy JSON paths (if useAPI = false)
     tenantsDataPath: './data/tenants.json',
