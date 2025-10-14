@@ -1,0 +1,90 @@
+{
+  "tenant_id": "tenant_esr",
+  "tenant_name": "Event Screen Rentals",
+  "config": {
+    "roles": [
+      {
+        "role_id": "admin",
+        "role_name": "Administrator",
+        "description": "Full administrative access to all system functions",
+        "default_permissions": [
+          "equipment_booking",
+          "equipment_management",
+          "user_management",
+          "rental_management",
+          "project_access",
+          "financial_overview",
+          "internal_resources"
+        ]
+      },
+      {
+        "role_id": "operator",
+        "role_name": "Operator",
+        "description": "Equipment operator with maintenance rights",
+        "default_permissions": [
+          "equipment_booking",
+          "equipment_maintenance",
+          "project_access",
+          "internal_resources"
+        ]
+      },
+      {
+        "role_id": "editor",
+        "role_name": "Editor",
+        "description": "Standard employee with basic access rights",
+        "default_permissions": [
+          "equipment_booking",
+          "project_access",
+          "internal_resources"
+        ]
+      },
+      {
+        "role_id": "customer",
+        "role_name": "Customer",
+        "description": "External customer for equipment rental",
+        "default_permissions": [
+          "rental_booking",
+          "invoice_view"
+        ]
+      }
+    ]
+  },
+  "users": [
+    {
+      "user_id": 1,
+      "tenant_id": "tenant_esr",
+      "user_type": "employee",
+      "personal_info": {
+        "first_name": "Admin",
+        "last_name": "ESR",
+        "position": "System Administrator",
+        "department": "Management",
+        "employee_number": "ESR-ADMIN-001"
+      },
+      "contact_info": {
+        "email": "admin@eventscreenrentals.com",
+        "phone": "+49 30 00000000",
+        "mobile": "+49 170 0000000"
+      },
+      "access_credentials": {
+        "username": "admin@tenant_esr",
+        "password": "ESR2025!Admin",
+        "role": "admin",
+        "permissions": [
+          "equipment_booking",
+          "equipment_management",
+          "user_management",
+          "rental_management",
+          "project_access",
+          "financial_overview",
+          "internal_resources"
+        ],
+        "is_active": true,
+        "last_login": null,
+        "created_at": "2025-10-14T00:00:00Z"
+      },
+      "notes": "Primary administrator account for Event Screen Rentals"
+    }
+  ]
+}
+

@@ -1,0 +1,12 @@
+{
+  "tenant_id": "tenant_esr",
+  "tenant_name": "Event Screen Rentals",
+  "config": {
+    "allow_rental": true,
+    "calculate_internal_costs": false,
+    "currency": "EUR",
+    "tax_rate": 19.0
+  },
+  "equipment": []
+}
+

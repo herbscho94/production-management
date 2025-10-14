@@ -1,0 +1,96 @@
+{
+  "tenant_id": "tenant_cmh",
+  "tenant_name": "ClipMyHorse.TV",
+  "config": {
+    "roles": [
+      {
+        "role_id": "admin",
+        "role_name": "Administrator",
+        "description": "Full administrative access to all system functions",
+        "default_permissions": [
+          "equipment_booking",
+          "equipment_management",
+          "user_management",
+          "rental_management",
+          "project_access",
+          "financial_overview",
+          "internal_resources",
+          "streaming_management",
+          "video_production"
+        ]
+      },
+      {
+        "role_id": "producer",
+        "role_name": "Producer",
+        "description": "Video producer with production rights",
+        "default_permissions": [
+          "equipment_booking",
+          "project_access",
+          "streaming_management",
+          "video_production",
+          "internal_resources"
+        ]
+      },
+      {
+        "role_id": "camera_operator",
+        "role_name": "Camera Operator",
+        "description": "Camera operator for live events",
+        "default_permissions": [
+          "equipment_booking",
+          "project_access",
+          "internal_resources"
+        ]
+      },
+      {
+        "role_id": "editor",
+        "role_name": "Editor",
+        "description": "Video editor with editing rights",
+        "default_permissions": [
+          "project_access",
+          "video_production",
+          "internal_resources"
+        ]
+      }
+    ]
+  },
+  "users": [
+    {
+      "user_id": 1,
+      "tenant_id": "tenant_cmh",
+      "user_type": "employee",
+      "personal_info": {
+        "first_name": "Admin",
+        "last_name": "CMH",
+        "position": "System Administrator",
+        "department": "IT & Operations",
+        "employee_number": "CMH-ADMIN-001"
+      },
+      "contact_info": {
+        "email": "admin@clipmyhorse.tv",
+        "phone": "+49 40 00000000",
+        "mobile": "+49 170 1111111"
+      },
+      "access_credentials": {
+        "username": "admin@tenant_cmh",
+        "password": "CMH2025!Admin",
+        "role": "admin",
+        "permissions": [
+          "equipment_booking",
+          "equipment_management",
+          "user_management",
+          "rental_management",
+          "project_access",
+          "financial_overview",
+          "internal_resources",
+          "streaming_management",
+          "video_production"
+        ],
+        "is_active": true,
+        "last_login": null,
+        "created_at": "2025-10-14T00:00:00Z"
+      },
+      "notes": "Primary administrator account for ClipMyHorse.TV"
+    }
+  ]
+}
+

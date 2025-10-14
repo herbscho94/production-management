@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Management Platform - Login</title>
+
+    <meta name="description" content="VBS Production Management Platform - Complete Production & Resource Management Solution">
+    <link rel="stylesheet" href="frontend_css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="content-wrapper">
+            <div class="login-section">
+                <div class="login-box">
+                    <div class="login-header">
+                        <div class="logo-container">
+                            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=294,fit=crop,q=95/mjEqopkMRLuO7VWa/logo-m7V5P47jzjSxjanZ.png" 
+                                 alt="VBS Visionary Broadcast Services" 
+                                 class="vbs-logo"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div class="vbs-logo-fallback" style="display: none;">
+                                <span class="vbs-text">VBS</span>
+                            </div>
+                        </div>
+                        <h1>Production Management Platform</h1>
+                        <p class="subtitle">Complete Production & Resource Management</p>
+                    </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="alert alert-error" id="errorMessage" style="display: none;">
+                    <svg class="alert-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                    </svg>
+                    <span id="errorText"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Username
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="username@tenant_id"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="11" width="14" height="10" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Password
+                    </label>
+                    <div class="password-input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter password"
+                            autocomplete="current-password"
+                            required
+                        >
+                        <button type="button" class="toggle-password" id="togglePassword" aria-label="Show/hide password">
+                            <svg class="eye-icon" id="eyeIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg class="eye-off-icon" id="eyeOffIcon" style="display: none;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.94 17.94C16.2306 19.243 14.1491 19.9649 12 20C5 20 1 12 1 12C2.24389 9.68192 3.96914 7.65663 6.06 6.06L17.94 17.94Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 4C14.1491 4.03506 16.2306 4.75695 17.94 6.06L6.06 17.94C3.96914 16.3434 2.24389 14.3181 1 12C1 12 5 4 12 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span class="checkbox-custom"></span>
+                        Remember me
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-login" id="loginButton">
+                    <span id="loginButtonText">Sign In</span>
+                    <svg class="spinner" id="loginSpinner" style="display: none;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </form>
+
+                </div>
+            </div>
+
+            <div class="promo-section">
+                <div class="promo-box">
+                    <div class="promo-image-container">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&auto=format&fit=crop&q=80" 
+                             alt="Media Production" 
+                             class="promo-image"
+
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 500%22%3E%3Crect fill=%22%23667eea%22 width=%22800%22 height=%22500%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2224%22 text-anchor=%22middle%22 dy=%22.3em%22%3EProduction Management Platform%3C/text%3E%3C/svg%3E'">
+                        <div class="promo-overlay">
+                            <div class="promo-badge">
+                                <svg class="badge-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/>
+                                </svg>
+                                <span>Only ฿100 / Month <span class="currency-rotation" id="currencyRotation">(~€2.60)</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-content">
+                        <h2 class="promo-title">Manage Your Productions, Teams & Gear — All in One Platform</h2>
+                        
+                        <div class="promo-description">
+                            <p class="promo-highlight">
+                                For TV studios, film crews, YouTubers, and media equipment rentals — streamline your workflow and save time.
+                            </p>
+                            
+                            <p class="promo-text">
+                                Plan productions, manage equipment, track your team, and control budgets — effortlessly, from anywhere.
+                            </p>
+                            
+                            <div class="promo-features">
+                                <div class="feature-item">
+                                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 16V8C20.9996 7.64927 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64927 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M3.27 6.96L12 12.01L20.73 6.96" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 22.08V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span><strong>Cloud Access:</strong> Work from anywhere, no limits</span>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span><strong>Full Data Export:</strong> Your data, fully under your control</span>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span><strong>Transparency:</strong> Know exactly what's stored and how</span>
+                                </div>
+                            </div>
+                            
+                            <div class="promo-cta">
+                                <a href="https://www.vbs-broadcast.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Start Free Trial
+                                </a>
+                                <a href="./doc/SYSTEM_DOCUMENTATION.md" class="btn-secondary">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10 9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="vbs-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p class="footer-copyright">© 2025 VBS Visionary Broadcast Services</p>
+                    <p class="footer-tagline">Innovative Media Production Solutions - Production Management Platform</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.vbs-broadcast.com/" target="_blank" rel="noopener noreferrer" class="footer-link">Visit VBS</a>
+                    <span class="footer-separator">|</span>
+                    <a href="#privacy" class="footer-link">Privacy</a>
+                    <span class="footer-separator">|</span>
+                    <a href="#terms" class="footer-link">Terms</a>
+                    <span class="footer-separator">|</span>
+                    <a href="#support" class="footer-link">Support</a>
+                </div>
+            </div>
+        </footer>
+
+        <div class="background-decoration">
+            <div class="decoration-circle circle-1"></div>
+            <div class="decoration-circle circle-2"></div>
+            <div class="decoration-circle circle-3"></div>
+        </div>
+    </div>
+
+    <script src="frontend_js/currency-rotator.js"></script>
+    <script src="frontend_js/login-multitenant.js"></script>
+</body>
+</html>
+

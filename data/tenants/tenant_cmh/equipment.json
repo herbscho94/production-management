@@ -1,0 +1,19 @@
+{
+  "tenant_id": "tenant_cmh",
+  "tenant_name": "ClipMyHorse.TV",
+  "config": {
+    "allow_rental": false,
+    "calculate_internal_costs": true,
+    "currency": "EUR",
+    "tax_rate": 19.0,
+    "equipment_categories": [
+      "cameras",
+      "streaming",
+      "audio",
+      "lighting",
+      "accessories"
+    ]
+  },
+  "equipment": []
+}
+

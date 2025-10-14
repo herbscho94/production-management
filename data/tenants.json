@@ -1,0 +1,104 @@
+{
+  "tenants": [
+    {
+      "tenant_id": "tenant_esr",
+      "tenant_name": "Event Screen Rentals",
+      "company_info": {
+        "legal_name": "Event Screen Rentals",
+        "country": "Germany",
+        "city": "Berlin",
+        "industry": "Event Technology & Screen Rental"
+      },
+      "subscription": {
+        "plan": "basic",
+        "plan_name": "Basic",
+        "status": "active",
+        "active_users": 5,
+        "users_limit": 10,
+        "storage_gb": 50,
+        "monthly_cost_thb": 500,
+        "billing_currency": "EUR",
+        "activated_at": "2025-10-14T00:00:00Z",
+        "next_billing_date": "2025-11-14T00:00:00Z"
+      },
+      "data_path": "tenants/tenant_esr",
+      "is_active": true,
+      "created_at": "2025-10-14T00:00:00Z"
+    },
+    {
+      "tenant_id": "tenant_cmh",
+      "tenant_name": "ClipMyHorse.TV",
+      "company_info": {
+        "legal_name": "ClipMyHorse.TV",
+        "country": "Germany",
+        "city": "Hamburg",
+        "industry": "Equestrian Sports Media & Broadcasting"
+      },
+      "subscription": {
+        "plan": "standard",
+        "plan_name": "Standard",
+        "status": "active",
+        "active_users": 12,
+        "users_limit": 20,
+        "storage_gb": 100,
+        "monthly_cost_thb": 1000,
+        "billing_currency": "EUR",
+        "activated_at": "2025-10-14T00:00:00Z",
+        "next_billing_date": "2025-11-14T00:00:00Z"
+      },
+      "data_path": "tenants/tenant_cmh",
+      "is_active": true,
+      "created_at": "2025-10-14T00:00:00Z"
+    }
+  ],
+  "config": {
+    "api_version": "1.0.0",
+    "multi_tenant_enabled": true,
+    "pricing": {
+      "currency": "THB",
+      "billing_cycle": "monthly",
+      "exchange_rates": {
+        "usd_to_thb": 35,
+        "eur_to_thb": 38
+      },
+      "plans": {
+        "starter": {
+          "plan_id": "starter",
+          "plan_name": "Starter",
+          "users_limit": 1,
+          "storage_gb": 1,
+          "price_thb": 100
+        },
+        "basic": {
+          "plan_id": "basic",
+          "plan_name": "Basic",
+          "users_limit": 10,
+          "storage_gb": 50,
+          "price_thb": 500
+        },
+        "standard": {
+          "plan_id": "standard",
+          "plan_name": "Standard",
+          "users_limit": 20,
+          "storage_gb": 100,
+          "price_thb": 1000
+        },
+        "professional": {
+          "plan_id": "professional",
+          "plan_name": "Professional",
+          "users_limit": 50,
+          "storage_gb": 500,
+          "price_thb": 1500
+        },
+        "elite": {
+          "plan_id": "elite",
+          "plan_name": "Elite",
+          "users_limit": 100,
+          "storage_gb": 1000,
+          "price_thb": 2500
+        }
+      }
+    }
+  }
+}
+
