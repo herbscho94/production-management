@@ -1,0 +1,92 @@
+{
+  "tenant_id": "tenant_cmh",
+  "branding": {
+    "company_name": "ClipMyHorse.TV",
+    "short_name": "CMH",
+    "logo_url": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=294,fit=crop,q=95/mjEqopkMRLuO7VWa/logo-m7V5P47jzjSxjanZ.png",
+    "logo_fallback_text": "VBS",
+    "platform_subtitle": "Production Management Platform",
+    "primary_color": "#2563eb",
+    "accent_color": "#667eea"
+  },
+  "features": {
+    "equipment_management": true,
+    "calendar": true,
+    "crm": false,
+    "accounting": false,
+    "worktime": true,
+    "quotes": false,
+    "invoices": false
+  },
+  "menu_labels": {
+    "dashboard": "Dashboard",
+    "calendar": "Calendar",
+    "equipment": "Equipment",
+    "customers": "Customers",
+    "accounting": "Accounting",
+    "worktime": "Work Time"
+  },
+  "dashboard_sections": {
+    "stats": {
+      "enabled": true,
+      "cards": [
+        {
+          "id": "total_equipment",
+          "label": "Total Equipment",
+          "type": "count",
+          "source": "equipment"
+        },
+        {
+          "id": "available_equipment",
+          "label": "Available",
+          "type": "count",
+          "source": "equipment"
+        },
+        {
+          "id": "active_bookings",
+          "label": "Active Bookings",
+          "type": "count",
+          "source": "bookings"
+        },
+        {
+          "id": "team_members",
+          "label": "Team Members",
+          "type": "count",
+          "source": "users"
+        }
+      ]
+    },
+    "quick_actions": {
+      "enabled": true,
+      "actions": [
+        {
+          "id": "booking",
+          "label": "New Booking",
+          "icon": "calendar",
+          "view": "calendar"
+        },
+        {
+          "id": "equipment",
+          "label": "Add Equipment",
+          "icon": "equipment",
+          "view": "equipment"
+        }
+      ]
+    },
+    "past_events": {
+      "enabled": false,
+      "title": "Recent Activity",
+      "limit": 10,
+      "show_revenue": false
+    }
+  },
+  "locale": {
+    "language": "en",
+    "currency": "EUR",
+    "date_format": "DD/MM/YYYY",
+    "timezone": "Europe/Berlin"
+  },
+  "created_at": "2025-10-16T10:00:00Z",
+  "updated_at": "2025-10-16T12:00:00Z"
+}
+

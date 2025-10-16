@@ -484,6 +484,45 @@ async def get_productions(
         raise HTTPException(status_code=500, detail=f"Failed to load production data: {str(e)}")
 
 # =====================================================
+# DASHBOARD CONFIG ENDPOINTS
+# =====================================================
+
+@app.get("/api/tenants/{tenant_id}/dashboard-config")
+async def get_dashboard_config(
+    tenant_id: str,
+    credentials: HTTPAuthorizationCredentials = Depends(security)
+):
+    """
+    Get dashboard configuration and branding for a tenant
+    """
+    payload = auth_manager.decode_token(credentials.credentials)
+    
+    if payload['tenant_id'] != tenant_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+    
+    # Load dashboard config
+    config_file = Path(settings.DATA_DIR) / "tenants" / tenant_id / "dashboard-config.json"
+    
+    if not config_file.exists():
+        # Return default config if file doesn't exist
+        return {
+            "tenant_id": tenant_id,
+            "branding": {
+                "company_name": "Production Management",
+                "logo_url": "",
+                "platform_subtitle": "Production Management Platform"
+            }
+        }
+    
+    import json
+    try:
+        with open(config_file, 'r', encoding='utf-8') as f:
+            config_data = json.load(f)
+        return config_data
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load dashboard config: {str(e)}")
+
+# =====================================================
 # ERROR HANDLERS
 # =====================================================
 

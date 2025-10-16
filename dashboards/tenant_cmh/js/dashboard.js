@@ -9,13 +9,17 @@ const TENANT_ID = 'tenant_cmh';
 // Session management
 let session = null;
 let token = null;
+let dashboardConfig = null;
 
 // Initialize dashboard
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('ClipMyHorse.TV Dashboard initializing...');
+    console.log('CMH Dashboard initializing...');
     
     // Check authentication
     checkAuth();
+    
+    // Load dashboard config first
+    await loadDashboardConfig();
     
     // Load dashboard data
     await loadDashboardData();
@@ -64,29 +68,77 @@ function checkAuth() {
 }
 
 /**
+ * Load dashboard configuration
+ */
+async function loadDashboardConfig() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/tenants/${TENANT_ID}/dashboard-config`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        
+        if (response.ok) {
+            dashboardConfig = await response.json();
+            console.log('Dashboard config loaded:', dashboardConfig);
+            
+            // Apply branding from config
+            applyBranding();
+        }
+    } catch (error) {
+        console.error('Error loading dashboard config:', error);
+    }
+}
+
+/**
+ * Apply branding from dashboard config
+ */
+function applyBranding() {
+    if (!dashboardConfig || !dashboardConfig.branding) return;
+    
+    const branding = dashboardConfig.branding;
+    
+    // Update company name in header
+    const brandName = document.getElementById('tenantBrandName');
+    if (brandName) {
+        brandName.textContent = branding.company_name || 'Production Management';
+    }
+    
+    // Update subtitle
+    const subtitle = document.querySelector('.brand-subtitle');
+    if (subtitle) {
+        subtitle.textContent = branding.platform_subtitle || 'Production Management Platform';
+    }
+    
+    // Update logo
+    const logoImg = document.querySelector('.brand-logo img');
+    const logoFallback = document.querySelector('.brand-logo div');
+    if (logoImg && branding.logo_url) {
+        logoImg.src = branding.logo_url;
+        logoImg.style.display = 'block';
+        if (logoFallback) logoFallback.style.display = 'none';
+    } else if (logoFallback && branding.logo_fallback_text) {
+        logoFallback.textContent = branding.logo_fallback_text;
+        logoFallback.style.display = 'block';
+    }
+    
+    // Update footer
+    const footerName = document.getElementById('tenantFooterName');
+    if (footerName) {
+        footerName.textContent = branding.company_name || 'VBS Visionary Broadcast Services';
+    }
+    
+    // Update page title
+    document.title = `${branding.company_name} - ${branding.platform_subtitle}`;
+}
+
+/**
  * Display user information
  */
 function displayUserInfo() {
     const userName = document.getElementById('userName');
     if (userName && session) {
         userName.textContent = `${session.firstName} ${session.lastName}`;
-    }
-    
-    // Display tenant brand name in header
-    const brandName = document.getElementById('tenantBrandName');
-    if (brandName && session) {
-        brandName.textContent = session.tenantName || 'Production Management';
-    }
-    
-    // Display tenant name in footer
-    const footerName = document.getElementById('tenantFooterName');
-    if (footerName && session) {
-        footerName.textContent = session.tenantName || 'VBS Visionary Broadcast Services';
-    }
-    
-    // Update page title
-    if (session && session.tenantName) {
-        document.title = `${session.tenantName} - Production Management Platform`;
     }
 }
 
