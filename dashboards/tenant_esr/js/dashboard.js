@@ -89,54 +89,26 @@ async function loadDashboardConfig() {
             dashboardConfig = await response.json();
             console.log('Dashboard config loaded:', dashboardConfig);
             
-            // Apply branding from config
-            applyBranding();
+            // Update company name
+            const brandName = document.getElementById('tenantBrandName');
+            if (brandName && dashboardConfig.company_name) {
+                brandName.textContent = dashboardConfig.company_name;
+            }
+            
+            // Update footer
+            const footerName = document.getElementById('tenantFooterName');
+            if (footerName && dashboardConfig.company_name) {
+                footerName.textContent = dashboardConfig.company_name;
+            }
+            
+            // Update page title
+            if (dashboardConfig.company_name) {
+                document.title = `${dashboardConfig.company_name} - Production Management Platform`;
+            }
         }
     } catch (error) {
         console.error('Error loading dashboard config:', error);
     }
-}
-
-/**
- * Apply branding from dashboard config
- */
-function applyBranding() {
-    if (!dashboardConfig || !dashboardConfig.branding) return;
-    
-    const branding = dashboardConfig.branding;
-    
-    // Update company name in header
-    const brandName = document.getElementById('tenantBrandName');
-    if (brandName) {
-        brandName.textContent = branding.company_name || 'Production Management';
-    }
-    
-    // Update subtitle
-    const subtitle = document.querySelector('.brand-subtitle');
-    if (subtitle) {
-        subtitle.textContent = branding.platform_subtitle || 'Production Management Platform';
-    }
-    
-    // Update logo
-    const logoImg = document.querySelector('.brand-logo img');
-    const logoFallback = document.querySelector('.brand-logo div');
-    if (logoImg && branding.logo_url) {
-        logoImg.src = branding.logo_url;
-        logoImg.style.display = 'block';
-        if (logoFallback) logoFallback.style.display = 'none';
-    } else if (logoFallback && branding.logo_fallback_text) {
-        logoFallback.textContent = branding.logo_fallback_text;
-        logoFallback.style.display = 'block';
-    }
-    
-    // Update footer
-    const footerName = document.getElementById('tenantFooterName');
-    if (footerName) {
-        footerName.textContent = branding.company_name || 'VBS Visionary Broadcast Services';
-    }
-    
-    // Update page title
-    document.title = `${branding.company_name} - ${branding.platform_subtitle}`;
 }
 
 /**

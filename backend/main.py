@@ -493,7 +493,7 @@ async def get_dashboard_config(
     credentials: HTTPAuthorizationCredentials = Depends(security)
 ):
     """
-    Get dashboard configuration and branding for a tenant
+    Get dashboard configuration for a tenant
     """
     payload = auth_manager.decode_token(credentials.credentials)
     
@@ -507,11 +507,7 @@ async def get_dashboard_config(
         # Return default config if file doesn't exist
         return {
             "tenant_id": tenant_id,
-            "branding": {
-                "company_name": "Production Management",
-                "logo_url": "",
-                "platform_subtitle": "Production Management Platform"
-            }
+            "company_name": "Production Management"
         }
     
     import json
