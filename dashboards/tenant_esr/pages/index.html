@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events Green Rentals - LED Wall Management</title>
-    <meta name="description" content="Events Green Rentals - LED Wall Rental Management Dashboard">
+    <title>Production Management Platform</title>
+    <meta name="description" content="VBS Production Management Platform - Equipment & Production Management">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/calendar.css">
     <link rel="stylesheet" href="../css/crm.css">
@@ -17,10 +17,16 @@
     <nav class="top-nav">
         <div class="nav-container">
             <div class="nav-brand">
-                <div class="brand-logo">EGR</div>
+                <div class="brand-logo">
+                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=152,h=102,fit=crop/m2WrzxyovalcokEa/logo-m7V5P47jzjSxjanZ.png" 
+                         alt="VBS Logo" 
+                         style="height: 40px; width: auto;"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; font-weight: bold; font-size: 24px; color: #2563eb;">VBS</div>
+                </div>
                 <div class="brand-info">
-                    <h1 class="brand-name">Events Green Rentals</h1>
-                    <p class="brand-subtitle">LED Wall Management System</p>
+                    <h1 class="brand-name" id="tenantBrandName">Loading...</h1>
+                    <p class="brand-subtitle">Production Management Platform</p>
                 </div>
             </div>
             
@@ -226,10 +232,10 @@
                 </div>
             </div>
 
-            <!-- Kommende Termine -->
+            <!-- Vergangene Termine -->
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Kommende Termine</h2>
+                    <h2 class="section-title">Vergangene Termine</h2>
                     <a href="#calendar" class="link-button" data-view-link="calendar">Alle anzeigen</a>
                 </div>
                 <div class="table-container">
@@ -240,13 +246,13 @@
                                 <th>Kunde</th>
                                 <th>Equipment</th>
                                 <th>Veranstaltung</th>
-                                <th>Status</th>
+                                <th>Umsatz</th>
                                 <th>Aktionen</th>
                             </tr>
                         </thead>
                         <tbody id="upcomingBookingsTable">
                             <tr>
-                                <td colspan="6" class="empty-state">Keine kommenden Termine vorhanden</td>
+                                <td colspan="6" class="empty-state">Keine vergangenen Termine vorhanden</td>
                             </tr>
                         </tbody>
                     </table>
@@ -468,8 +474,10 @@
     <!-- Footer -->
     <footer class="dashboard-footer">
         <div class="footer-content">
-            <p>© 2025 Events Green Rentals | LED Wall Management System</p>
+            <p>© 2025 <span id="tenantFooterName">VBS Visionary Broadcast Services</span> | Production Management Platform</p>
             <div class="footer-links">
+                <a href="https://www.vbs-broadcast.com" target="_blank">VBS Website</a>
+                <span>|</span>
                 <a href="#support">Support</a>
                 <span>|</span>
                 <a href="#documentation">Dokumentation</a>

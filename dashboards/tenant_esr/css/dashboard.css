@@ -1,16 +1,21 @@
 /* =====================================================
-   EVENT SCREEN RENTALS - Dashboard Styles
-   Tenant-specific branding and colors
+   VBS PRODUCTION MANAGEMENT PLATFORM - Dashboard Styles
+   Unified design for all tenants
+   Based on VBS Website: https://www.vbs-broadcast.com/
    ===================================================== */
 
 :root {
-    /* Events Green Rentals Brand Colors */
-    --esr-primary: #10b981;      /* Green - Umweltfreundlich */
-    --esr-primary-dark: #059669;
-    --esr-primary-light: #34d399;
-    --esr-secondary: #1f2937;
-    --esr-accent: #f59e0b;
-    --esr-blue: #3b82f6;
+    /* VBS Brand Colors - Matching Login Page & Website */
+    --primary: #2563eb;           /* VBS Blue */
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --secondary: #667eea;         /* Purple gradient start */
+    --secondary-dark: #764ba2;    /* Purple gradient end */
+    --accent: #f59e0b;            /* Amber accent */
+    
+    /* Gradient (matching login page) */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-button: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     
     /* UI Colors */
     --bg-main: #f9fafb;
@@ -21,10 +26,17 @@
     --text-light: #9ca3af;
     --border: #e5e7eb;
     
+    /* Status Colors */
+    --status-success: #10b981;
+    --status-warning: #f59e0b;
+    --status-error: #ef4444;
+    --status-info: #3b82f6;
+    
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -69,10 +81,8 @@ body {
 }
 
 .brand-logo {
-    width: 50px;
+    width: auto;
     height: 50px;
-    background: linear-gradient(135deg, var(--esr-primary) 0%, var(--esr-primary-dark) 100%);
-    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,8 +140,8 @@ body {
 
 .btn-logout:hover {
     background: white;
-    border-color: var(--esr-primary);
-    color: var(--esr-primary);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .logout-icon {
@@ -187,7 +197,7 @@ body {
 }
 
 .nav-item.active {
-    background: var(--esr-primary);
+    background: var(--primary);
     color: white;
 }
 
@@ -253,7 +263,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, var(--esr-primary) 0%, var(--esr-primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     border: none;
     border-radius: 8px;
@@ -315,10 +325,10 @@ body {
     stroke: white;
 }
 
-.bg-blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
-.bg-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-.bg-orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
-.bg-purple { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+.bg-blue { background: var(--gradient-button); }
+.bg-green { background: linear-gradient(135deg, var(--status-success) 0%, #059669 100%); }
+.bg-orange { background: linear-gradient(135deg, var(--status-warning) 0%, #d97706 100%); }
+.bg-purple { background: var(--gradient-primary); }
 
 .stat-label {
     font-size: 0.875rem;
@@ -358,7 +368,7 @@ body {
 }
 
 .link-button {
-    color: var(--esr-primary);
+    color: var(--primary);
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
@@ -366,7 +376,7 @@ body {
 }
 
 .link-button:hover {
-    color: var(--esr-primary-dark);
+    color: var(--primary-dark);
 }
 
 /* =====================================================
@@ -395,7 +405,7 @@ body {
 }
 
 .action-card:hover {
-    border-color: var(--esr-primary);
+    border-color: var(--primary);
     background: white;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -404,7 +414,7 @@ body {
 .action-icon {
     width: 32px;
     height: 32px;
-    stroke: var(--esr-primary);
+    stroke: var(--primary);
 }
 
 /* =====================================================
@@ -513,7 +523,7 @@ body {
 }
 
 .dashboard-footer a {
-    color: var(--esr-primary);
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -598,7 +608,7 @@ body {
 .price-value {
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--esr-primary);
+    color: var(--primary);
 }
 
 .equipment-card-footer {
@@ -609,13 +619,13 @@ body {
 }
 
 .btn-sm.primary {
-    background: var(--esr-primary);
+    background: var(--primary);
     color: white;
-    border-color: var(--esr-primary);
+    border-color: var(--primary);
 }
 
 .btn-sm.primary:hover {
-    background: var(--esr-primary-dark);
+    background: var(--primary-dark);
 }
 
 /* =====================================================

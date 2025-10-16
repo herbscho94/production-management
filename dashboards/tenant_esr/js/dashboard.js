@@ -78,6 +78,23 @@ function displayUserInfo() {
     if (userName && session) {
         userName.textContent = `${session.firstName} ${session.lastName}`;
     }
+    
+    // Display tenant brand name in header
+    const brandName = document.getElementById('tenantBrandName');
+    if (brandName && session) {
+        brandName.textContent = session.tenantName || 'Production Management';
+    }
+    
+    // Display tenant name in footer
+    const footerName = document.getElementById('tenantFooterName');
+    if (footerName && session) {
+        footerName.textContent = session.tenantName || 'VBS Visionary Broadcast Services';
+    }
+    
+    // Update page title
+    if (session && session.tenantName) {
+        document.title = `${session.tenantName} - Production Management Platform`;
+    }
 }
 
 /**
@@ -358,7 +375,7 @@ function formatActivityTime(date) {
 }
 
 /**
- * Load upcoming bookings for the dashboard
+ * Load past bookings for the dashboard
  */
 async function loadUpcomingBookings() {
     const tbody = document.getElementById('upcomingBookingsTable');
@@ -369,23 +386,23 @@ async function loadUpcomingBookings() {
         const productions = window.productionsData || [];
         const customers = window.customersData || [];
         
-        // Filter upcoming bookings (future or ongoing)
+        // Filter past bookings (already completed)
         const now = new Date();
-        const upcomingProductions = productions
-            .filter(p => new Date(p.end_date) >= now)
-            .sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
-            .slice(0, 5); // Show only next 5 productions
+        const pastProductions = productions
+            .filter(p => new Date(p.end_date) < now)
+            .sort((a, b) => new Date(b.end_date) - new Date(a.end_date)) // Neueste zuerst
+            .slice(0, 20); // Show last 20 productions
         
-        if (upcomingProductions.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Keine kommenden Termine vorhanden</td></tr>';
+        if (pastProductions.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Keine vergangenen Termine vorhanden</td></tr>';
             return;
         }
         
-        tbody.innerHTML = upcomingProductions.map(production => {
+        tbody.innerHTML = pastProductions.map(production => {
             const customer = customers.find(c => c.id === production.customer_id);
             const customerName = customer ? customer.company_name : 'Unbekannt';
             const equipmentNames = getEquipmentNamesFromIds(production.equipment_ids || []);
-            const statusText = getBookingStatusText(production.status);
+            const revenue = production.pricing ? production.pricing.equipment_cost : production.total_price;
             
             return `
                 <tr>
@@ -393,7 +410,7 @@ async function loadUpcomingBookings() {
                     <td>${customerName}</td>
                     <td>${equipmentNames}</td>
                     <td>${production.event_name || '-'}</td>
-                    <td><span class="status-badge status-${production.status}">${statusText}</span></td>
+                    <td><strong>${formatCurrency(revenue || 0)}</strong></td>
                     <td>
                         <button class="btn-sm" onclick="viewProduction('${production.id}')">Details</button>
                     </td>
@@ -402,7 +419,7 @@ async function loadUpcomingBookings() {
         }).join('');
         
     } catch (error) {
-        console.error('Error loading upcoming bookings:', error);
+        console.error('Error loading past bookings:', error);
         tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Fehler beim Laden der Termine</td></tr>';
     }
 }

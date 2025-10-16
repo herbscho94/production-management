@@ -1,29 +1,42 @@
 /* =====================================================
-   CLIPMYHORSE.TV - Dashboard Styles
-   Equestrian sports broadcasting theme
+   VBS PRODUCTION MANAGEMENT PLATFORM - Dashboard Styles
+   Unified design for all tenants
+   Based on VBS Website: https://www.vbs-broadcast.com/
    ===================================================== */
 
 :root {
-    /* CMH Brand Colors (Purple/Blue - Equestrian themed) */
-    --cmh-primary: #7c3aed;
-    --cmh-primary-dark: #6d28d9;
-    --cmh-primary-light: #8b5cf6;
-    --cmh-secondary: #1e293b;
-    --cmh-accent: #06b6d4;
+    /* VBS Brand Colors - Matching Login Page & Website */
+    --primary: #2563eb;           /* VBS Blue */
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --secondary: #667eea;         /* Purple gradient start */
+    --secondary-dark: #764ba2;    /* Purple gradient end */
+    --accent: #f59e0b;            /* Amber accent */
+    
+    /* Gradient (matching login page) */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-button: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     
     /* UI Colors */
-    --bg-main: #f8fafc;
-    --bg-sidebar: #1e293b;
+    --bg-main: #f9fafb;
+    --bg-sidebar: #1f2937;
     --bg-card: #ffffff;
-    --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --text-light: #94a3b8;
-    --border: #e2e8f0;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-light: #9ca3af;
+    --border: #e5e7eb;
+    
+    /* Status Colors */
+    --status-success: #10b981;
+    --status-warning: #f59e0b;
+    --status-error: #ef4444;
+    --status-info: #3b82f6;
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -70,7 +83,7 @@ body {
 .brand-logo {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--cmh-primary) 0%, var(--cmh-primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -87,7 +100,7 @@ body {
 .brand-name {
     font-size: 1.25rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--cmh-primary) 0%, var(--cmh-accent) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--cmh-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -134,8 +147,8 @@ body {
 
 .btn-logout:hover {
     background: white;
-    border-color: var(--cmh-primary);
-    color: var(--cmh-primary);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .logout-icon {
@@ -191,7 +204,7 @@ body {
 }
 
 .nav-item.active {
-    background: linear-gradient(135deg, var(--cmh-primary) 0%, var(--cmh-primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
 }
 
@@ -257,7 +270,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, var(--cmh-primary) 0%, var(--cmh-primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     border: none;
     border-radius: 8px;
@@ -322,7 +335,7 @@ body {
 .bg-blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
 .bg-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
 .bg-orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
-.bg-purple { background: linear-gradient(135deg, var(--cmh-primary) 0%, var(--cmh-primary-dark) 100%); }
+.bg-purple { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); }
 
 .stat-label {
     font-size: 0.875rem;
@@ -362,7 +375,7 @@ body {
 }
 
 .link-button {
-    color: var(--cmh-primary);
+    color: var(--primary);
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
@@ -370,7 +383,7 @@ body {
 }
 
 .link-button:hover {
-    color: var(--cmh-primary-dark);
+    color: var(--primary-dark);
 }
 
 .actions-grid {
@@ -395,7 +408,7 @@ body {
 }
 
 .action-card:hover {
-    border-color: var(--cmh-primary);
+    border-color: var(--primary);
     background: white;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -404,7 +417,7 @@ body {
 .action-icon {
     width: 32px;
     height: 32px;
-    stroke: var(--cmh-primary);
+    stroke: var(--primary);
 }
 
 .table-container {
@@ -505,7 +518,7 @@ body {
 }
 
 .dashboard-footer a {
-    color: var(--cmh-primary);
+    color: var(--primary);
     text-decoration: none;
 }
 

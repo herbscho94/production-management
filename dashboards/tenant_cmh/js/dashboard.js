@@ -71,6 +71,23 @@ function displayUserInfo() {
     if (userName && session) {
         userName.textContent = `${session.firstName} ${session.lastName}`;
     }
+    
+    // Display tenant brand name in header
+    const brandName = document.getElementById('tenantBrandName');
+    if (brandName && session) {
+        brandName.textContent = session.tenantName || 'Production Management';
+    }
+    
+    // Display tenant name in footer
+    const footerName = document.getElementById('tenantFooterName');
+    if (footerName && session) {
+        footerName.textContent = session.tenantName || 'VBS Visionary Broadcast Services';
+    }
+    
+    // Update page title
+    if (session && session.tenantName) {
+        document.title = `${session.tenantName} - Production Management Platform`;
+    }
 }
 
 /**
