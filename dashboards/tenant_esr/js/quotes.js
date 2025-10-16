@@ -74,9 +74,12 @@ function renderQuotes(filter = 'all') {
                 </div>
             </div>
             <div class="quote-equipment-list">
-                ${quote.equipment.map(eq => `
-                    <div class="quote-equipment-item">${eq.name} (${eq.quantity}x)</div>
-                `).join('')}
+                ${(quote.equipment || []).map(eq => {
+                    const equipmentData = window.equipmentData || [];
+                    const equip = equipmentData.find(e => e.id === eq.equipment_id);
+                    const equipName = equip ? equip.name : (eq.name || eq.equipment_id);
+                    return `<div class="quote-equipment-item">${equipName} (${eq.quantity}x)</div>`;
+                }).join('')}
             </div>
             <div class="quote-total">
                 <span class="quote-total-label">Gesamt:</span>

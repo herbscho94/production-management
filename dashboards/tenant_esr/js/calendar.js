@@ -136,7 +136,11 @@ function renderBookingsList() {
                 </div>
             </div>
             <div class="booking-equipment">
-                ${booking.equipment.map(eq => `<span class="equipment-badge">${eq.name}</span>`).join('')}
+                ${(booking.equipment_ids || []).map(equipId => {
+                    const equipmentData = window.equipmentData || [];
+                    const equip = equipmentData.find(e => e.id === equipId);
+                    return `<span class="equipment-badge">${equip ? equip.name : equipId}</span>`;
+                }).join('')}
             </div>
         </div>
     `).join('');

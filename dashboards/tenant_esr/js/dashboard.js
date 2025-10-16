@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Load initial CRM data for global access
     await loadInitialCRMData();
+    
+    // Load productions data
+    await loadProductionsData();
 });
 
 /**
@@ -114,10 +117,31 @@ async function loadInitialCRMData() {
             window.communicationsData = data.communications || [];
             window.quotesData = data.quotes || [];
             window.invoicesData = data.invoices || [];
-            window.bookingsData = data.bookings || [];
         }
     } catch (error) {
         console.error('Error loading CRM data:', error);
+    }
+}
+
+/**
+ * Load productions/bookings data
+ */
+async function loadProductionsData() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/tenants/${TENANT_ID}/productions`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            // Make data globally available for other modules
+            window.productionsData = data.productions || [];
+        }
+    } catch (error) {
+        console.error('Error loading productions data:', error);
+        window.productionsData = [];
     }
 }
 
@@ -139,14 +163,8 @@ async function loadEquipment() {
         const data = await response.json();
         const equipment = data.data || [];
         
-        // Update stats
-        document.getElementById('totalEquipment').textContent = equipment.length;
-        
-        const available = equipment.filter(e => e.status === 'available').length;
-        document.getElementById('availableEquipment').textContent = available;
-        
-        // Display in table
-        displayEquipment(equipment);
+        // Store equipment globally for later use
+        window.equipmentData = equipment;
         
     } catch (error) {
         console.error('Error loading equipment:', error);
@@ -157,28 +175,12 @@ async function loadEquipment() {
 }
 
 /**
- * Display equipment in table
+ * Display equipment in table (legacy function - no longer used on dashboard)
  */
 function displayEquipment(equipment) {
-    const tbody = document.getElementById('equipmentTableBody');
-    
-    if (!equipment || equipment.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Keine LED-Wände vorhanden</td></tr>';
-        return;
-    }
-    
-    tbody.innerHTML = equipment.map(eq => `
-        <tr>
-            <td><strong>${eq.name}</strong></td>
-            <td>${eq.type}</td>
-            <td><span class="status-badge status-${eq.status}">${getStatusTextGerman(eq.status)}</span></td>
-            <td>${eq.location}</td>
-            <td><strong>${eq.daily_rental_rate ? formatCurrency(eq.daily_rental_rate) : '-'}</strong></td>
-            <td>
-                <button class="btn-sm" onclick="viewEquipment('${eq.id}')">Details</button>
-            </td>
-        </tr>
-    `).join('');
+    // This function is no longer used on the dashboard overview
+    // Equipment is now displayed in the dedicated equipment view
+    return;
 }
 
 /**
@@ -198,27 +200,54 @@ function getStatusTextGerman(status) {
  */
 async function loadStatistics() {
     try {
-        const response = await fetch(`${API_BASE_URL}/tenants/${TENANT_ID}/crm`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-        
-        if (response.ok) {
-            const data = await response.json();
-            
-            // Update bookings count
-            const activeBookings = (data.bookings || []).filter(b => b.status === 'confirmed').length;
-            document.getElementById('activeBookings').textContent = activeBookings;
-            
-            // Update customers count
-            const activeCustomers = (data.customers || []).filter(c => c.status === 'active').length;
-            document.getElementById('activeCustomers').textContent = activeCustomers;
+        // Wait for productions data to be loaded
+        if (!window.productionsData) {
+            await loadProductionsData();
         }
+        
+        const productions = window.productionsData || [];
+        const quotes = window.quotesData || [];
+        const currentYear = new Date().getFullYear();
+        const nextYear = currentYear + 1;
+        
+        // Bookings this year (2025)
+        const bookingsThisYear = productions.filter(p => {
+            const productionYear = new Date(p.start_date).getFullYear();
+            return productionYear === currentYear;
+        }).length;
+        document.getElementById('bookingsThisYear').textContent = bookingsThisYear;
+        
+        // Profit this year (2025) - sum of all completed production revenues
+        const profitThisYear = productions
+            .filter(p => {
+                const productionYear = new Date(p.start_date).getFullYear();
+                return productionYear === currentYear && p.status === 'completed';
+            })
+            .reduce((sum, p) => sum + (parseFloat(p.pricing.equipment_cost) || 0), 0);
+        document.getElementById('profitThisYear').textContent = formatCurrency(profitThisYear);
+        
+        // Bookings next year (2026)
+        const bookingsNextYear = productions.filter(p => {
+            const productionYear = new Date(p.start_date).getFullYear();
+            return productionYear === nextYear;
+        }).length;
+        document.getElementById('bookingsNextYear').textContent = bookingsNextYear;
+        
+        // Quotes for next year (2026)
+        const quotesNextYear = quotes.filter(q => {
+            const quoteYear = new Date(q.date).getFullYear();
+            return quoteYear === nextYear && q.status === 'sent';
+        }).length;
+        document.getElementById('quotesNextYear').textContent = quotesNextYear;
+        
+        // Load upcoming bookings
+        loadUpcomingBookings();
     } catch (error) {
         console.error('Error loading statistics:', error);
-        document.getElementById('activeBookings').textContent = '0';
-        document.getElementById('activeCustomers').textContent = '0';
+        document.getElementById('bookingsThisYear').textContent = '0';
+        document.getElementById('profitThisYear').textContent = '0 €';
+        document.getElementById('bookingsNextYear').textContent = '0';
+        document.getElementById('quotesNextYear').textContent = '0';
     }
 }
 
@@ -329,6 +358,103 @@ function formatActivityTime(date) {
 }
 
 /**
+ * Load upcoming bookings for the dashboard
+ */
+async function loadUpcomingBookings() {
+    const tbody = document.getElementById('upcomingBookingsTable');
+    if (!tbody) return;
+    
+    try {
+        // Get productions and customers data
+        const productions = window.productionsData || [];
+        const customers = window.customersData || [];
+        
+        // Filter upcoming bookings (future or ongoing)
+        const now = new Date();
+        const upcomingProductions = productions
+            .filter(p => new Date(p.end_date) >= now)
+            .sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
+            .slice(0, 5); // Show only next 5 productions
+        
+        if (upcomingProductions.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Keine kommenden Termine vorhanden</td></tr>';
+            return;
+        }
+        
+        tbody.innerHTML = upcomingProductions.map(production => {
+            const customer = customers.find(c => c.id === production.customer_id);
+            const customerName = customer ? customer.company_name : 'Unbekannt';
+            const equipmentNames = getEquipmentNamesFromIds(production.equipment_ids || []);
+            const statusText = getBookingStatusText(production.status);
+            
+            return `
+                <tr>
+                    <td><strong>${formatDateRange(production.start_date, production.end_date)}</strong></td>
+                    <td>${customerName}</td>
+                    <td>${equipmentNames}</td>
+                    <td>${production.event_name || '-'}</td>
+                    <td><span class="status-badge status-${production.status}">${statusText}</span></td>
+                    <td>
+                        <button class="btn-sm" onclick="viewProduction('${production.id}')">Details</button>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+        
+    } catch (error) {
+        console.error('Error loading upcoming bookings:', error);
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Fehler beim Laden der Termine</td></tr>';
+    }
+}
+
+/**
+ * Get equipment names from equipment IDs
+ * @param {Array} equipmentIds - Array of equipment IDs
+ * @returns {string} Comma-separated list of equipment names
+ */
+function getEquipmentNamesFromIds(equipmentIds) {
+    if (!equipmentIds || equipmentIds.length === 0) {
+        return 'N/A';
+    }
+    
+    const equipmentData = window.equipmentData || [];
+    const names = equipmentIds.map(id => {
+        const equipment = equipmentData.find(eq => eq.id === id);
+        return equipment ? equipment.name : id;
+    });
+    
+    return names.join(', ');
+}
+
+/**
+ * Get booking status text in German
+ */
+function getBookingStatusText(status) {
+    const statusMap = {
+        'confirmed': 'Bestätigt',
+        'pending': 'Ausstehend',
+        'completed': 'Abgeschlossen',
+        'cancelled': 'Storniert'
+    };
+    return statusMap[status] || status;
+}
+
+/**
+ * Format date range
+ */
+function formatDateRange(startDate, endDate) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    
+    if (start.toDateString() === end.toDateString()) {
+        return start.toLocaleDateString('de-DE', options);
+    } else {
+        return `${start.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' })} - ${end.toLocaleDateString('de-DE', options)}`;
+    }
+}
+
+/**
  * Setup event listeners
  */
 function setupEventListeners() {
@@ -358,9 +484,27 @@ function setupEventListeners() {
     const btnAddEquipment = document.getElementById('btnAddEquipment');
     if (btnAddEquipment) {
         btnAddEquipment.addEventListener('click', () => {
-            alert('LED-Wand hinzufügen - Feature in Entwicklung!');
+            alert('Equipment hinzufügen - Feature in Entwicklung!');
         });
     }
+    
+    // Accounting tab switching
+    const accountingTabs = document.querySelectorAll('#view-accounting .crm-tab');
+    accountingTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabName = tab.getAttribute('data-tab');
+            
+            // Update active tab
+            accountingTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Show corresponding content
+            document.querySelectorAll('#view-accounting .crm-tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`accounting-${tabName}`).classList.add('active');
+        });
+    });
     
     // Quick Actions
     setupQuickActions();
@@ -373,9 +517,9 @@ function setupEventListeners() {
  * Setup quick action buttons
  */
 function setupQuickActions() {
-    const quickActionBooking = document.getElementById('quickActionBooking');
-    if (quickActionBooking) {
-        quickActionBooking.addEventListener('click', () => {
+    const quickActionCalendar = document.getElementById('quickActionCalendar');
+    if (quickActionCalendar) {
+        quickActionCalendar.addEventListener('click', () => {
             switchToView('calendar');
         });
     }
@@ -383,7 +527,14 @@ function setupQuickActions() {
     const quickActionQuote = document.getElementById('quickActionQuote');
     if (quickActionQuote) {
         quickActionQuote.addEventListener('click', () => {
-            switchToView('quotes');
+            switchToView('accounting');
+        });
+    }
+    
+    const quickActionInvoice = document.getElementById('quickActionInvoice');
+    if (quickActionInvoice) {
+        quickActionInvoice.addEventListener('click', () => {
+            switchToView('accounting');
         });
     }
     
@@ -391,13 +542,6 @@ function setupQuickActions() {
     if (quickActionCustomer) {
         quickActionCustomer.addEventListener('click', () => {
             switchToView('customers');
-        });
-    }
-    
-    const quickActionInvoice = document.getElementById('quickActionInvoice');
-    if (quickActionInvoice) {
-        quickActionInvoice.addEventListener('click', () => {
-            switchToView('invoices');
         });
     }
 }

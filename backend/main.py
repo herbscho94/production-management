@@ -422,7 +422,7 @@ async def get_crm_data(
     credentials: HTTPAuthorizationCredentials = Depends(security)
 ):
     """
-    Get CRM data (customers, communications, quotes, invoices, bookings)
+    Get CRM data (customers, communications, quotes, invoices)
     """
     payload = auth_manager.decode_token(credentials.credentials)
     
@@ -438,8 +438,7 @@ async def get_crm_data(
             "customers": [],
             "communications": [],
             "quotes": [],
-            "invoices": [],
-            "bookings": []
+            "invoices": []
         }
     
     import json
@@ -449,6 +448,40 @@ async def get_crm_data(
         return crm_data
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load CRM data: {str(e)}")
+
+# =====================================================
+# PRODUCTION ENDPOINTS
+# =====================================================
+
+@app.get("/api/tenants/{tenant_id}/productions")
+async def get_productions(
+    tenant_id: str,
+    credentials: HTTPAuthorizationCredentials = Depends(security)
+):
+    """
+    Get all productions/bookings/events for a tenant
+    """
+    payload = auth_manager.decode_token(credentials.credentials)
+    
+    if payload['tenant_id'] != tenant_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+    
+    # Load production data
+    production_file = Path(settings.DATA_DIR) / "tenants" / tenant_id / "production.json"
+    
+    if not production_file.exists():
+        # Return empty production structure if file doesn't exist
+        return {
+            "productions": []
+        }
+    
+    import json
+    try:
+        with open(production_file, 'r', encoding='utf-8') as f:
+            production_data = json.load(f)
+        return production_data
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load production data: {str(e)}")
 
 # =====================================================
 # ERROR HANDLERS

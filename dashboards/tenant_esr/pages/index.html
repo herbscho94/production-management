@@ -72,7 +72,7 @@
                         <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
                         <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    LED-Wände
+                    Equipment
                 </a>
                 <a href="#customers" class="nav-item" data-view="customers">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
@@ -81,34 +81,23 @@
                         <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2"/>
                         <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    Kunden (CRM)
+                    Kunden
                 </a>
-                <a href="#quotes" class="nav-item" data-view="quotes">
+                <a href="#accounting" class="nav-item" data-view="accounting">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M14 2V8H20" stroke="currentColor" stroke-width="2"/>
-                        <path d="M16 13H8" stroke="currentColor" stroke-width="2"/>
-                        <path d="M16 17H8" stroke="currentColor" stroke-width="2"/>
-                        <path d="M10 9H8" stroke="currentColor" stroke-width="2"/>
+                        <path d="M3 3V21H21" stroke="currentColor" stroke-width="2"/>
+                        <path d="M18 17V9" stroke="currentColor" stroke-width="2"/>
+                        <path d="M13 17V5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 17V13" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    Angebote
+                    Buchhaltung
                 </a>
-                <a href="#invoices" class="nav-item" data-view="invoices">
+                <a href="#worktime" class="nav-item" data-view="worktime">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2"/>
-                        <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 3V15" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    Rechnungen
-                </a>
-                <a href="#users" class="nav-item" data-view="users">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H5C3.93913 15 2.92172 15.4214 1.17157 16.1716C0.421427 16.9217 0 17.9391 0 19V21" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                        <path d="M20 8V14" stroke="currentColor" stroke-width="2"/>
-                        <path d="M23 11H17" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Team
+                    Arbeitszeiten
                 </a>
             </nav>
             
@@ -144,26 +133,28 @@
                 <div class="stat-card">
                     <div class="stat-icon bg-blue">
                         <svg viewBox="0 0 24 24" fill="none">
-                            <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 2V6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 2V6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M3 10H21" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <p class="stat-label">Total Equipment</p>
-                        <p class="stat-value" id="totalEquipment">0</p>
+                        <p class="stat-label">Buchungen 2025</p>
+                        <p class="stat-value" id="bookingsThisYear">0</p>
                     </div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-icon bg-green">
                         <svg viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 2V22" stroke="currentColor" stroke-width="2"/>
+                            <path d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <p class="stat-label">Available</p>
-                        <p class="stat-value" id="availableEquipment">0</p>
+                        <p class="stat-label">Gewinn 2025</p>
+                        <p class="stat-value" id="profitThisYear">0 €</p>
                     </div>
                 </div>
 
@@ -177,23 +168,21 @@
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <p class="stat-label">Active Bookings</p>
-                        <p class="stat-value" id="activeBookings">0</p>
+                        <p class="stat-label">Buchungen 2026</p>
+                        <p class="stat-value" id="bookingsNextYear">0</p>
                     </div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-icon bg-purple">
                         <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                            <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2"/>
-                            <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 2V8H20" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
                     <div class="stat-info">
-                        <p class="stat-label">Active Customers</p>
-                        <p class="stat-value" id="activeCustomers">0</p>
+                        <p class="stat-label">Angebote 2026</p>
+                        <p class="stat-value" id="quotesNextYear">0</p>
                     </div>
                 </div>
             </div>
@@ -202,14 +191,14 @@
             <div class="section">
                 <h2 class="section-title">Schnellaktionen</h2>
                 <div class="actions-grid">
-                    <button class="action-card" id="quickActionBooking">
+                    <button class="action-card" id="quickActionCalendar">
                         <svg class="action-icon" viewBox="0 0 24 24" fill="none">
                             <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
                             <path d="M16 2V6" stroke="currentColor" stroke-width="2"/>
                             <path d="M8 2V6" stroke="currentColor" stroke-width="2"/>
                             <path d="M3 10H21" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <span>Neue Buchung</span>
+                        <span>Kalenderübersicht</span>
                     </button>
                     <button class="action-card" id="quickActionQuote">
                         <svg class="action-icon" viewBox="0 0 24 24" fill="none">
@@ -217,14 +206,6 @@
                             <path d="M14 2V8H20" stroke="currentColor" stroke-width="2"/>
                         </svg>
                         <span>Angebot erstellen</span>
-                    </button>
-                    <button class="action-card" id="quickActionCustomer">
-                        <svg class="action-icon" viewBox="0 0 24 24" fill="none">
-                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                            <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>Neuer Kunde</span>
                     </button>
                     <button class="action-card" id="quickActionInvoice">
                         <svg class="action-icon" viewBox="0 0 24 24" fill="none">
@@ -234,52 +215,41 @@
                         </svg>
                         <span>Rechnung erstellen</span>
                     </button>
+                    <button class="action-card" id="quickActionCustomer">
+                        <svg class="action-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Kunde erfassen</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- LED-Wände Übersicht -->
+            <!-- Kommende Termine -->
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">LED-Wände Übersicht</h2>
-                    <a href="#equipment" class="link-button" data-view-link="equipment">Alle anzeigen</a>
+                    <h2 class="section-title">Kommende Termine</h2>
+                    <a href="#calendar" class="link-button" data-view-link="calendar">Alle anzeigen</a>
                 </div>
                 <div class="table-container">
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>LED-Wand</th>
-                                <th>Typ</th>
+                                <th>Datum</th>
+                                <th>Kunde</th>
+                                <th>Equipment</th>
+                                <th>Veranstaltung</th>
                                 <th>Status</th>
-                                <th>Standort</th>
-                                <th>Tagespreis</th>
                                 <th>Aktionen</th>
                             </tr>
                         </thead>
-                        <tbody id="equipmentTableBody">
+                        <tbody id="upcomingBookingsTable">
                             <tr>
-                                <td colspan="6" class="empty-state">Keine LED-Wände vorhanden</td>
+                                <td colspan="6" class="empty-state">Keine kommenden Termine vorhanden</td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-
-            <!-- Recent Activity -->
-            <div class="section">
-                <h2 class="section-title">Letzte Aktivitäten</h2>
-                <div class="activity-list" id="activityList">
-                    <div class="activity-item">
-                        <div class="activity-icon bg-blue">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-title">Willkommen in deinem Dashboard!</p>
-                            <p class="activity-time">Starte mit einer Buchung oder verwalte deine LED-Wände</p>
-                        </div>
-                    </div>
                 </div>
             </div>
             </div>
@@ -335,15 +305,15 @@
             <div id="view-equipment" class="view-container">
                 <header class="content-header">
                     <div>
-                        <h1 class="page-title">LED-Wände</h1>
-                        <p class="page-subtitle">Verwaltung deiner LED-Wände</p>
+                        <h1 class="page-title">Equipment</h1>
+                        <p class="page-subtitle">Verwaltung deines Equipments</p>
                     </div>
                     <button class="btn-primary" id="btnAddEquipment">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M12 5V19" stroke="currentColor" stroke-width="2"/>
                             <path d="M5 12H19" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        LED-Wand hinzufügen
+                        Equipment hinzufügen
                     </button>
                 </header>
 
@@ -353,11 +323,11 @@
             </div>
             <!-- END EQUIPMENT VIEW -->
 
-            <!-- CUSTOMERS VIEW (CRM) -->
+            <!-- CUSTOMERS VIEW -->
             <div id="view-customers" class="view-container">
                 <header class="content-header">
                     <div>
-                        <h1 class="page-title">Kunden (CRM)</h1>
+                        <h1 class="page-title">Kunden</h1>
                         <p class="page-subtitle">Kundenverwaltung & Kommunikation</p>
                     </div>
                     <button class="btn-primary" id="btnAddCustomer">
@@ -405,90 +375,93 @@
             </div>
             <!-- END CUSTOMERS VIEW -->
 
-            <!-- QUOTES VIEW -->
-            <div id="view-quotes" class="view-container">
+            <!-- ACCOUNTING VIEW (Quotes + Invoices) -->
+            <div id="view-accounting" class="view-container">
                 <header class="content-header">
                     <div>
-                        <h1 class="page-title">Angebote</h1>
-                        <p class="page-subtitle">Erstelle und verwalte Angebote</p>
+                        <h1 class="page-title">Buchhaltung</h1>
+                        <p class="page-subtitle">Angebote & Rechnungen verwalten</p>
                     </div>
-                    <button class="btn-primary" id="btnCreateQuote">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 5V19" stroke="currentColor" stroke-width="2"/>
-                            <path d="M5 12H19" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Neues Angebot
-                    </button>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-primary" id="btnCreateQuote">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5V19" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Neues Angebot
+                        </button>
+                        <button class="btn-primary" id="btnCreateInvoice">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5V19" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Neue Rechnung
+                        </button>
+                    </div>
                 </header>
 
-                <!-- Quotes Filter -->
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all">Alle</button>
-                    <button class="filter-btn" data-filter="draft">Entwurf</button>
-                    <button class="filter-btn" data-filter="sent">Gesendet</button>
-                    <button class="filter-btn" data-filter="accepted">Angenommen</button>
-                    <button class="filter-btn" data-filter="rejected">Abgelehnt</button>
+                <!-- Accounting Tabs -->
+                <div class="crm-tabs">
+                    <button class="crm-tab active" data-tab="quotes">Angebote</button>
+                    <button class="crm-tab" data-tab="invoices">Rechnungen</button>
                 </div>
 
-                <!-- Quotes Grid -->
-                <div class="quotes-grid" id="quotesGrid">
-                    <!-- Quotes will be loaded by JavaScript -->
+                <!-- Quotes Tab Content -->
+                <div id="accounting-quotes" class="crm-tab-content active">
+                    <!-- Quotes Filter -->
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">Alle</button>
+                        <button class="filter-btn" data-filter="draft">Entwurf</button>
+                        <button class="filter-btn" data-filter="sent">Gesendet</button>
+                        <button class="filter-btn" data-filter="accepted">Angenommen</button>
+                        <button class="filter-btn" data-filter="rejected">Abgelehnt</button>
+                    </div>
+
+                    <!-- Quotes Grid -->
+                    <div class="quotes-grid" id="quotesGrid">
+                        <!-- Quotes will be loaded by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Invoices Tab Content -->
+                <div id="accounting-invoices" class="crm-tab-content">
+                    <!-- Invoices Filter -->
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">Alle</button>
+                        <button class="filter-btn" data-filter="pending">Ausstehend</button>
+                        <button class="filter-btn" data-filter="paid">Bezahlt</button>
+                        <button class="filter-btn" data-filter="overdue">Überfällig</button>
+                    </div>
+
+                    <!-- Invoices Grid -->
+                    <div class="invoices-grid" id="invoicesGrid">
+                        <!-- Invoices will be loaded by JavaScript -->
+                    </div>
                 </div>
             </div>
-            <!-- END QUOTES VIEW -->
+            <!-- END ACCOUNTING VIEW -->
 
-            <!-- INVOICES VIEW -->
-            <div id="view-invoices" class="view-container">
+            <!-- WORKTIME VIEW -->
+            <div id="view-worktime" class="view-container">
                 <header class="content-header">
                     <div>
-                        <h1 class="page-title">Rechnungen</h1>
-                        <p class="page-subtitle">Verwalte Rechnungen & Zahlungen</p>
+                        <h1 class="page-title">Arbeitszeiten</h1>
+                        <p class="page-subtitle">Zeiterfassung & Arbeitszeiten</p>
                     </div>
-                    <button class="btn-primary" id="btnCreateInvoice">
+                    <button class="btn-primary" id="btnAddWorktime">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M12 5V19" stroke="currentColor" stroke-width="2"/>
                             <path d="M5 12H19" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        Neue Rechnung
-                    </button>
-                </header>
-
-                <!-- Invoices Filter -->
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all">Alle</button>
-                    <button class="filter-btn" data-filter="pending">Ausstehend</button>
-                    <button class="filter-btn" data-filter="paid">Bezahlt</button>
-                    <button class="filter-btn" data-filter="overdue">Überfällig</button>
-                </div>
-
-                <!-- Invoices Grid -->
-                <div class="invoices-grid" id="invoicesGrid">
-                    <!-- Invoices will be loaded by JavaScript -->
-                </div>
-            </div>
-            <!-- END INVOICES VIEW -->
-
-            <!-- USERS VIEW -->
-            <div id="view-users" class="view-container">
-                <header class="content-header">
-                    <div>
-                        <h1 class="page-title">Team</h1>
-                        <p class="page-subtitle">Verwalte Benutzer & Berechtigungen</p>
-                    </div>
-                    <button class="btn-primary" id="btnAddUser">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 5V19" stroke="currentColor" stroke-width="2"/>
-                            <path d="M5 12H19" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Benutzer hinzufügen
+                        Zeit erfassen
                     </button>
                 </header>
 
                 <div class="section">
-                    <p class="text-secondary">Team-Verwaltung - Coming soon!</p>
+                    <p class="text-secondary">Arbeitszeiterfassung - Coming soon!</p>
                 </div>
             </div>
-            <!-- END USERS VIEW -->
+            <!-- END WORKTIME VIEW -->
         </main>
     </div>
 

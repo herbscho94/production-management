@@ -4,6 +4,115 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.0.6] - 2025-10-14
+
+### 🎉 Added - Events Green Rentals Dashboard (Tenant ESR)
+
+#### ✨ Vollständiges LED-Wand-Vermietungssystem
+
+**Neue Datenstruktur:**
+- ✅ `data/tenants/tenant_esr/crm.json` - Komplettes CRM-System
+  - Kundendatenbank (3 Testkunden)
+  - Kommunikationsverlauf (E-Mail, Telefon, Meeting)
+  - Angebote mit automatischer Preisberechnung
+  - Rechnungen mit Zahlungsstatus
+  - Buchungen mit LED-Wand-Zuordnung
+
+- ✅ `data/tenants/tenant_esr/equipment.json` - 2 LED-Wände
+  - LED-Wand Premium 6x4m (Samsung The Wall Pro) - 800€/Tag
+  - LED-Wand Standard 4x3m (LG Direct View LED) - 500€/Tag
+
+**Dashboard HTML:**
+- ✅ 7 verschiedene Views (Overview, Kalender, Equipment, CRM, Angebote, Rechnungen, Team)
+- ✅ Statistik-Karten (LED-Wände, Buchungen, Kunden)
+- ✅ Schnellaktionen für häufige Tasks
+- ✅ Komplett auf Deutsch lokalisiert
+- ✅ Responsive Design
+
+**Modulare JavaScript-Architektur (7 Dateien):**
+- ✅ `dashboard.js` - Kern & Authentifizierung
+- ✅ `navigation.js` - View-Switching System
+- ✅ `calendar.js` - Kalender mit Buchungsvisualisierung
+- ✅ `customers.js` - CRM-Verwaltung
+- ✅ `quotes.js` - Angebotssystem mit Filtern
+- ✅ `invoices.js` - Rechnungsmanagement
+- ✅ `communication.js` - Kommunikations-Tracking
+
+**Modulare CSS-Architektur (5 Dateien):**
+- ✅ `dashboard.css` - Basis-Design (grünes Theme #10b981)
+- ✅ `calendar.css` - Kalender-Komponenten
+- ✅ `crm.css` - CRM-Styles
+- ✅ `quotes.css` - Angebots-Design
+- ✅ `invoices.css` - Rechnungs-Design
+
+**Backend Integration:**
+- ✅ API-Endpunkt: `GET /api/tenants/tenant_esr/crm`
+- ✅ CRM-Daten werden dynamisch vom Backend geladen
+- ✅ JWT-Authentifizierung & Tenant-Isolation
+
+**Dashboard Features:**
+
+1. **📅 Kalender & Vermietung**
+   - Monatskalender mit Buchungsvisualisierung
+   - Farbige Markierung gebuchter Tage
+   - Doppelbuchungs-Warnung
+   - Detaillierte Buchungsliste
+
+2. **🖥️ LED-Wände Management**
+   - Equipment-Grid mit Karten-Ansicht
+   - Technische Spezifikationen
+   - Status-Tracking (Verfügbar, Vermietet, Wartung)
+   - Tagespreise prominent angezeigt
+
+3. **👥 CRM (Customer Relationship Management)**
+   - Kundendatenbank mit vollständigen Kontaktdaten
+   - Kommunikationsverlauf (E-Mail, Telefon, Meeting)
+   - Tab-basierte Navigation
+   - Status-Management (Aktiv, Potenziell, Inaktiv)
+
+4. **📄 Angebote**
+   - Automatische Angebotsnummern (ANG-2025-XXX)
+   - LED-Wand-Auswahl & Mietzeitraum
+   - Automatische Preisberechnung mit MwSt (19%)
+   - Status-Filter (Entwurf, Gesendet, Angenommen, Abgelehnt)
+
+5. **💰 Rechnungen**
+   - Automatische Rechnungsnummern (RE-2025-XXX)
+   - Verknüpfung mit Angeboten
+   - Zahlungsstatus-Tracking
+   - Überfälligkeits-Warnungen
+   - PDF-Export (vorbereitet)
+
+**Design & Branding:**
+- ✅ Grünes Farbschema (#10b981) - "Green Rentals"
+- ✅ Logo: EGR (Events Green Rentals)
+- ✅ Moderne UI mit Schatten & Animationen
+- ✅ Status-Badges mit Farb-Kodierung
+
+**Dokumentation:**
+- ✅ `dashboards/tenant_esr/README.md` - Dashboard-Dokumentation
+- ✅ `dashboards/tenant_esr/CHANGELOG.md` - Detailliertes Changelog
+
+**Testdaten:**
+- ✅ 3 Kunden (TechEvent, Festival Productions, Corporate Events Plus)
+- ✅ 3 Kommunikationen
+- ✅ 2 Angebote (1 gesendet, 1 angenommen)
+- ✅ 1 Rechnung (ausstehend)
+- ✅ 1 Buchung (November 2025)
+
+### Changed
+- Brand Name: "Event Screen Rentals" → "Events Green Rentals"
+- Theme Color: Rot (#dc2626) → Grün (#10b981)
+- Dashboard komplett neu strukturiert mit modularem Ansatz
+
+### Technical Details
+- Modulare Architektur für einfache Wartung
+- Globale Daten-Synchronisation zwischen Modulen
+- View-Switching ohne Seitenreload
+- Responsive Breakpoints für alle Geräte
+
+---
+
 ## [1.0.5] - 2025-10-14
 
 ### Added

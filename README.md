@@ -91,12 +91,18 @@ One management platform for the **entire media industry** — from TV stations a
 
 ## 🏢 Current Tenants
 
-### 1. Event Screen Rentals
+### 1. Events Green Rentals ✨ NEW
 - **Location:** Berlin, Germany
-- **Industry:** Event Technology & Screen Rental
+- **Industry:** LED Wall Rental for Events
 - **Plan:** Basic (5/10 users, 50 GB)
 - **Cost:** 500 THB/month (€13 / $15)
 - **Tenant ID:** `tenant_esr`
+- **Dashboard:** ✅ **Fully Operational** (LED Wall Management System)
+  - 📅 Kalender & Buchungen
+  - 🖥️ 2 LED-Wände (Premium 6x4m, Standard 4x3m)
+  - 👥 CRM mit Kunden & Kommunikation
+  - 📄 Angebote (Auto-Preisberechnung)
+  - 💰 Rechnungen (Zahlungsstatus)
 
 ### 2. ClipMyHorse.TV
 - **Location:** Hamburg, Germany
@@ -104,6 +110,7 @@ One management platform for the **entire media industry** — from TV stations a
 - **Plan:** Standard (12/20 users, 100 GB)
 - **Cost:** 1,000 THB/month (€26 / $28)
 - **Tenant ID:** `tenant_cmh`
+- **Dashboard:** ✅ Fully Operational (Production Equipment Management)
 
 ---
 
@@ -177,40 +184,57 @@ Produktionsplanung/
 - Session management
 - Call-to-action buttons
 
-### Dashboard ⏳ PLANNED
+### Events Green Rentals Dashboard ✅ COMPLETE (v1.0.6)
 
+**LED Wall Management System:**
+- ✅ **Kalender & Vermietung**
+  - Monatskalender mit Buchungsvisualisierung
+  - Doppelbuchungs-Warnung
+  - Detaillierte Buchungsliste
+
+- ✅ **LED-Wände Management**
+  - 2 LED-Wände (Premium 6x4m, Standard 4x3m)
+  - Equipment-Grid mit technischen Specs
+  - Status-Tracking & Tagespreise
+
+- ✅ **CRM System**
+  - Kundendatenbank (3 Testkunden)
+  - Kommunikationsverlauf (E-Mail, Telefon, Meeting)
+  - Status-Management (Aktiv, Potenziell, Inaktiv)
+
+- ✅ **Angebote**
+  - Automatische Angebotsnummern
+  - LED-Wand-Auswahl & Mietzeitraum
+  - Auto-Preisberechnung mit MwSt (19%)
+  - Status-Filter
+
+- ✅ **Rechnungen**
+  - Automatische Rechnungsnummern
+  - Zahlungsstatus-Tracking
+  - Überfälligkeits-Warnungen
+  - PDF-Export (vorbereitet)
+
+**Technologie:**
+- Modulare JS-Architektur (7 Dateien)
+- Modulare CSS-Struktur (5 Dateien)
+- Grünes Theme (#10b981)
+- API-Integration (FastAPI Backend)
+
+### ClipMyHorse.TV Dashboard ✅ COMPLETE
+
+**Production Equipment Management:**
 - Equipment overview
 - Quick booking
 - Recent activity
 - Statistics & charts
 
-### Equipment Management ⏳ PLANNED
+### Upcoming Features ⏳ PLANNED
 
-- List, add, edit equipment
-- Upload images
-- Track status and location
-- Maintenance scheduling
-
-### Booking System ⏳ PLANNED
-
-- Calendar view
-- Conflict detection
-- Approval workflow
+- Upload images for equipment
 - Email notifications
-
-### User Management ⏳ PLANNED
-
-- Add/edit users (Admin only)
-- Role assignment
-- Permission management
-- Activity tracking
-
-### Reporting ⏳ PLANNED
-
-- Utilization reports
-- Revenue tracking
-- Export to Excel/PDF
-- Custom date ranges
+- Advanced reporting & analytics
+- Mobile app
+- Multi-language support
 
 ---
 
@@ -344,6 +368,24 @@ python3 -m http.server 8001
 
 ## 🔄 Version History
 
+### v1.0.6 - October 14, 2025 ✨ LATEST
+
+**Events Green Rentals Dashboard:**
+- ✅ Vollständiges LED-Wand-Vermietungssystem
+- ✅ CRM mit Kunden, Kommunikation, Angeboten & Rechnungen
+- ✅ Kalender mit Buchungsvisualisierung
+- ✅ 2 LED-Wände (Samsung, LG) mit Tagespreisen
+- ✅ Modulare JavaScript & CSS Architektur
+- ✅ Backend API-Integration (FastAPI)
+
+### v1.0.5 - October 14, 2025
+
+**Server Deployment:**
+- ✅ Complete Ubuntu server installation guide
+- ✅ Python FastAPI backend with Systemd
+- ✅ NGINX reverse proxy configuration
+- ✅ SSL/HTTPS setup guide
+
 ### v1.0.0 - October 14, 2025
 
 **Initial Release:**
@@ -352,8 +394,8 @@ python3 -m http.server 8001
 - ✅ 2 real tenants configured
 - ✅ Responsive design complete
 - ✅ Documentation complete
-- ⏳ Backend API in planning
-- ⏳ Dashboard to be developed
+- ✅ Backend API (Python FastAPI)
+- ✅ ClipMyHorse.TV Dashboard operational
 
 **Key Decisions:**
 - SaaS model (not local installation)

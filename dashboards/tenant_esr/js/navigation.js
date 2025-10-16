@@ -70,15 +70,17 @@ function loadViewData(viewName) {
                 loadCustomers();
             }
             break;
-        case 'quotes':
+        case 'accounting':
+            // Load both quotes and invoices for accounting view
             if (typeof loadQuotes === 'function') {
                 loadQuotes();
             }
-            break;
-        case 'invoices':
             if (typeof loadInvoices === 'function') {
                 loadInvoices();
             }
+            break;
+        case 'worktime':
+            // Worktime view - Coming soon
             break;
     }
 }

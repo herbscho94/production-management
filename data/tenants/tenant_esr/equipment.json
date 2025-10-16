@@ -9,64 +9,38 @@
   },
   "equipment": [
     {
-      "id": "led_001",
-      "name": "LED-Wand Premium 6x4m",
-      "type": "LED Screen",
-      "category": "LED Wall",
-      "manufacturer": "Samsung",
-      "model": "The Wall Pro",
-      "serial_number": "LED-PRO-2024-001",
+      "id": "led_003",
+      "name": "LED-Anhänger 16qm",
+      "type": "LED Trailer",
+      "category": "Mobile LED Display",
+      "manufacturer": "Custom Build",
+      "model": "LED-Trailer Pro",
+      "serial_number": "LED-TRAILER-2024-003",
       "specifications": {
-        "dimensions": "6m x 4m",
-        "resolution": "7680 x 5120",
-        "pixel_pitch": "2.5mm",
-        "brightness": "1500 nits",
-        "weight_kg": 180
+        "dimensions": "6.11m x 2.65m",
+        "display_area_sqm": 16,
+        "resolution": "Custom",
+        "pixel_pitch": "Variable",
+        "brightness": "High brightness outdoor",
+        "weight_kg": 1500,
+        "trailer": true,
+        "mobile": true
       },
       "status": "available",
-      "location": "Hauptlager Berlin",
-      "purchase_date": "2024-01-15",
-      "purchase_price": 45000.00,
-      "daily_rental_rate": 800.00,
+      "location": "Hauptlager",
+      "purchase_date": "2024-03-10",
+      "purchase_price": 85000.00,
+      "daily_rental_rate": null,
+      "weekend_rate": 1400.00,
       "condition": "excellent",
       "maintenance": {
-        "last_service": "2025-09-15",
-        "next_service": "2025-12-15",
+        "last_service": "2025-09-10",
+        "next_service": "2025-12-10",
         "service_interval_days": 90
       },
-      "notes": "Flaggschiff-Modell, perfekt für große Events",
-      "created_at": "2024-01-15T10:00:00Z",
-      "updated_at": "2025-10-14T10:00:00Z"
-    },
-    {
-      "id": "led_002",
-      "name": "LED-Wand Standard 4x3m",
-      "type": "LED Screen",
-      "category": "LED Wall",
-      "manufacturer": "LG",
-      "model": "Direct View LED",
-      "serial_number": "LED-STD-2024-002",
-      "specifications": {
-        "dimensions": "4m x 3m",
-        "resolution": "5120 x 3840",
-        "pixel_pitch": "3.0mm",
-        "brightness": "1200 nits",
-        "weight_kg": 95
-      },
-      "status": "available",
-      "location": "Hauptlager Berlin",
-      "purchase_date": "2024-02-20",
-      "purchase_price": 28000.00,
-      "daily_rental_rate": 500.00,
-      "condition": "very good",
-      "maintenance": {
-        "last_service": "2025-09-20",
-        "next_service": "2025-12-20",
-        "service_interval_days": 90
-      },
-      "notes": "Vielseitig einsetzbar für mittelgroße Events",
-      "created_at": "2024-02-20T10:00:00Z",
-      "updated_at": "2025-10-14T10:00:00Z"
+      "notes": "Mobiler LED-Anhänger mit 16 Quadratmetern Displayfläche. Ideal für Outdoor-Events, Sportveranstaltungen und mobile Werbung. Pauschalpreis 1.400€ pro Wochenende.",
+      "created_at": "2024-03-10T10:00:00Z",
+      "updated_at": "2025-10-16T12:00:00Z"
     }
   ]
 }
