@@ -13,47 +13,18 @@
     <link rel="stylesheet" href="../../../frontend_css/login.css">
 </head>
 <body>
-    <!-- Top Navigation -->
-    <nav class="top-nav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <div class="brand-logo" style="padding: 0; background: transparent; border-radius: 0; box-shadow: none;">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=294,fit=crop,q=95/mjEqopkMRLuO7VWa/logo-m7V5P47jzjSxjanZ.png" 
-                         alt="VBS Logo" 
-                         style="height: 50px; width: auto; display: block;"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; font-weight: bold; font-size: 24px; color: #2563eb; padding: 10px 15px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; color: white;">VBS</div>
-                </div>
-                <div class="brand-info">
-                    <h1 class="brand-name" id="tenantBrandName">Loading...</h1>
-                    <p class="brand-subtitle">Production Management Platform</p>
-                </div>
-            </div>
-            
-            <div class="nav-actions">
-                <div class="user-info">
-                    <svg class="user-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    <span id="userName">Loading...</span>
-                </div>
-                <button class="btn-logout" id="logoutBtn">
-                    <svg class="logout-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 21H5C4.46957 21 3.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V5C2 4.46957 2.21071 3.96086 2.58579 3.58579C2.96086 3.21071 3.46957 3 4 3H9" stroke="currentColor" stroke-width="2"/>
-                        <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2"/>
-                        <path d="M21 12H9" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Logout
-                </button>
-            </div>
-        </div>
-    </nav>
-
     <!-- Main Container -->
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
+            <!-- VBS Logo in Sidebar -->
+            <div class="sidebar-logo">
+                <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=294,fit=crop,q=95/mjEqopkMRLuO7VWa/logo-m7V5P47jzjSxjanZ.png" 
+                     alt="VBS Logo" 
+                     style="width: 120px; height: auto;"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; font-weight: bold; font-size: 28px; padding: 15px 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; color: white;">VBS</div>
+            </div>
             <nav class="sidebar-nav">
                 <a href="#overview" class="nav-item active" data-view="overview">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
@@ -117,6 +88,31 @@
 
         <!-- Main Content -->
         <main class="main-content">
+            <!-- Top Header with Brand and User Info -->
+            <header class="top-header">
+                <div class="brand-info-header">
+                    <h1 class="brand-name" id="tenantBrandName">Loading...</h1>
+                    <p class="brand-subtitle">Production Management Platform</p>
+                </div>
+                <div class="user-actions">
+                    <div class="user-info">
+                        <svg class="user-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span id="userName">Loading...</span>
+                    </div>
+                    <button class="btn-logout" id="logoutBtn">
+                        <svg class="logout-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 21H5C4.46957 21 3.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V5C2 4.46957 2.21071 3.96086 2.58579 3.58579C2.96086 3.21071 3.46957 3 4 3H9" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 12H9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Logout
+                    </button>
+                </div>
+            </header>
+
             <!-- OVERVIEW VIEW -->
             <div id="view-overview" class="view-container active">
                 <!-- Header -->

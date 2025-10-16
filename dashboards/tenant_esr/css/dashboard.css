@@ -159,19 +159,58 @@ body {
 }
 
 /* =====================================================
+   TOP HEADER (New Layout)
+   ===================================================== */
+
+.top-header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-sm);
+}
+
+.brand-info-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* =====================================================
    SIDEBAR
    ===================================================== */
 
 .sidebar {
     width: 260px;
     background: var(--bg-sidebar);
-    padding: 2rem 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+/* Sidebar Logo */
+.sidebar-logo {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .sidebar-nav {
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
